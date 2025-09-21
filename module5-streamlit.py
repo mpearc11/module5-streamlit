@@ -4,7 +4,6 @@ from Bio import Align
 from Bio.Seq import Seq
 from Bio import SeqIO
 from io import StringIO
-#from Bio.Align.Applications import ClustalOmegaCommandLine
 from Bio import AlignIO
 
 st.title('EvoScore Calculation')
@@ -38,11 +37,9 @@ if st.button('create PSA'):
     alignment = aligner.align(target,query)
     st.write(alignment[0])
     #alignment = alignment[0]
-    with open('clustalPSA.fasta', "w") as handle:
-        AlignIO.write(alignment, handle, 'clustal')
+    #with open('clustalPSA.fasta', "w") as handle:
+        #AlignIO.write(alignment, handle, 'clustal')
     
-    #clustalomega_cline=ClustalOmegaCommandLine(infile='PSA.fasta',outfile='culstalPSA.fasta')
-
 @st.fragment()
 def PSA_download():
     with open('clustalPSA.fasta') as f:
