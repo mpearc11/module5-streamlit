@@ -38,7 +38,7 @@ if st.button('create PSA'):
     best_alignment = alignment[0]
     #st.write(alignment.get_alignment_length()) #attribute doesn't exist
     st.write(best_alignment)
-    st.write(best_alignment.get_alignment_length())
+    s#t.write(best_alignment.get_alignment_length()) #attribute doesn't exist
     align_record = SeqRecord(best_alignment[0])
     st.write(align_record)
     st.write(align_record.get_alignment_length())
