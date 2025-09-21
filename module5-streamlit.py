@@ -38,9 +38,8 @@ if st.button('create PSA'):
     alignment = aligner.align(target,query)
     st.write(alignment[0])
     #alignment = alignment[0]
-    outfile = 'clustalPSA.fasta'
-    Align.write(alignment, outfile, 'clustal')
-    
+    with open('clustalPSA.fasta', "w") as handle:
+        AlignIO.write(alignment, handle, 'clustal')
     
     #clustalomega_cline=ClustalOmegaCommandLine(infile='PSA.fasta',outfile='culstalPSA.fasta')
 
