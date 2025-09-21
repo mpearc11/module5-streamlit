@@ -7,7 +7,7 @@ from Bio import SeqIO
 from io import StringIO
 from Bio import AlignIO
 from Bio.Align.Applications import ClustalOmegaCommandline
-from clustalo import clustalo
+#from clustalo import clustalo
 
 st.title('EvoScore Calculation')
 
