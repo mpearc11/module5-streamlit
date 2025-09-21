@@ -37,8 +37,8 @@ if st.button('create PSA'):
     alignment = aligner.align(target,query)
     st.write(alignment[0])
     #alignment = alignment[0]
-    #with open('clustalPSA.fasta', "w") as handle:
-        #AlignIO.write(alignment, handle, 'clustal')
+    with open('clustalPSA.fasta', "w") as handle:
+        AlignIO.write(alignment, handle, 'clustal')
     
 @st.fragment()
 def PSA_download():
