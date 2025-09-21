@@ -35,6 +35,7 @@ if st.button('create PSA'):
     aligner = Align.PairwiseAligner()
     
     alignment = aligner.align(target,query)
+    st.write(alignment.get_alignment_length())
     st.write(alignment[0])
     #alignment = alignment[0]
     with open('clustalPSA.fasta', "w") as handle:
