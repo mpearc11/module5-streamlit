@@ -35,11 +35,20 @@ if st.button('create PSA'):
     aligner = Align.PairwiseAligner()
     
     alignment = aligner.align(target,query)
+    best_alignment = alignment[0]
     st.write(alignment.get_alignment_length())
-    st.write(alignment[0])
+    st.write(best_alignment)
+    st.write(best_alignment.get_alignment_length())
+    align_record = SeqRecord(best_alignment[0])
+    st.write(align_record)
+    st.write(align_record.get_alignment_length())
     #alignment = alignment[0]
-    with open('clustalPSA.fasta', "w") as handle:
-        AlignIO.write(alignment, handle, 'clustal')
+    #with open('clustalPSA.fasta', "w") as handle:
+        #AlignIO.write(alignment, handle, 'clustal')
+    SeqIO.write(alignment, 'clustalPSA.fasta', 'clustal')
+
+    #clustalomega_cline=ClustalOmegaCommandLine(infile='PSA.fasta',outfile='culstalPSA.fasta')
+
     
 @st.fragment()
 def PSA_download():
