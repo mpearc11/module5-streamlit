@@ -42,7 +42,7 @@ if st.button('create PSA'):
     #st.write(best_alignment.get_alignment_length()) #attribute doesn't exist
     align_record = SeqRecord(best_alignment[0])
     st.write(align_record)
-    st.write(align_record.get_alignment_length())
+    #st.write(align_record.get_alignment_length())
     #alignment = alignment[0]
     #with open('clustalPSA.fasta', "w") as handle:
         #AlignIO.write(alignment, handle, 'clustal')
