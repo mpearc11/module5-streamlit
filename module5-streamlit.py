@@ -39,13 +39,15 @@ if st.button('create PSA'):
     best_alignment = alignment[0]
     st.write(best_alignment)
     
-    align_record = SeqRecord(best_alignment[0])
-    st.write(align_record)
+    align_record1 = SeqRecord(best_alignment[0])
+    align_record2 = SeqRecord(best_alignment[1])
+    records = [align_record1, align_record2]
+    st.write(records)
     
     #with open('clustalPSA.fasta', "w") as handle:
         #AlignIO.write(alignment, handle, 'clustal')
     #SeqIO.write(best_alignment, 'clustalPSA.fasta', 'clustal')
-    SeqIO.write(align_record, 'clustalPSA.fasta', 'clustal')
+    SeqIO.write(records, 'clustalPSA.fasta', 'clustal')
 
     #clustalomega_cline=ClustalOmegaCommandLine(infile='PSA.fasta',outfile='culstalPSA.fasta')
 
