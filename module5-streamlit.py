@@ -70,11 +70,11 @@ else:
     st.info("please upload your PSA file")
 
 if st.button('create PSA alignment object'):
-    alignment = AlignIO.read(open(psa_file), "clustal")
-    #st.write(alignment)
-    #psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
-    #psa_record=SeqIO.read(psa_sio,'fasta')
-    #psa=str(psa_record.seq)
+    psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
+    psa_record=SeqIO.read(psa_sio,'fasta')
+    psa=str(psa_record.seq)
+    alignment = AlignIO.read(open(psa), "clustal")
+    st.write(alignment)
     st.write(type(alignment.sequences))
 
 consurf_file = st.file_uploader('',type='csv')
