@@ -71,6 +71,7 @@ else:
 
 if st.button('create PSA alignment object'):
     psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
+    st.write(psa_sio)
     psa_record=SeqIO.read(psa_sio,'fasta')
     psa=str(psa_record.seq)
     alignment = AlignIO.read(open(psa), "clustal")
