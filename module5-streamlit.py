@@ -84,7 +84,7 @@ if consurf_file is not None:
 else:
     st.info('please upload the consurf file')
 
-if st.button('create consurf dataframe')
+if st.button('create consurf dataframe'):
     df = pd.read_csv(consurf_file)
 
 
