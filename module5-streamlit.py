@@ -69,10 +69,12 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-if st.button('create python objects'):
-    psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
-    psa_record=SeqIO.read(psa_sio,'fasta')
-    psa=str(psa_record.seq)
+if st.button('create PSA alignment object'):
+    alignment = AlignIO.read(open("ctei_clustal.aln-clustal_num"), "clustal")
+    st.write(alignment)
+    #psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
+    #psa_record=SeqIO.read(psa_sio,'fasta')
+    #psa=str(psa_record.seq)
 
 consurf_file = st.file_uploader('',type='csv')
 
@@ -81,7 +83,8 @@ if consurf_file is not None:
 else:
     st.info('please upload the consurf file')
 
-df = pd.read_csv("consurf.csv")
+if st.button('create consurf dataframe')
+    df = pd.read_csv("consurf.csv")
 
 
 @st.fragment()
