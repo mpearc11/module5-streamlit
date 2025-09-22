@@ -74,7 +74,7 @@ if st.button('create PSA alignment object'):
     #psa_record=SeqIO.read(psa_sio,'fasta')
     #psa=str(psa_record.seq)
     st.write(psa_file)
-    alignment = AlignIO.read(open(psa), "clustal")
+    alignment = Align.read(open(psa_file), "clustal")
     st.write(alignment)
     st.write(type(alignment.sequences))
 
