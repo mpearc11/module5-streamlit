@@ -7,7 +7,6 @@ from Bio import SeqIO
 from io import StringIO
 from Bio import AlignIO
 from Bio.Align.Applications import ClustalOmegaCommandline
-#from clustalo import clustalo
 
 st.title('EvoScore Calculation')
 
@@ -55,7 +54,7 @@ if st.button('create PSA'):
     out_file = "clustalPSA.aln"
     clustalomega_cline=ClustalOmegaCommandline(infile=in_file,outfile=out_file,outfmt='clustal')
     st.write(clustalomega_cline)
-    st.write('clustal file success maybe')
+    clustalomega_cline()
 
     
 @st.fragment()
