@@ -53,7 +53,7 @@ if st.button('create PSA'):
 
     in_file = "clustalPSA.fasta"
     out_file = "clustalPSA.aln"
-    clustalomega_cline=ClustalOmegaCommandLine(infile=in_file,outfile=out_file)
+    clustalomega_cline=ClustalOmegaCommandline(infile=in_file,outfile=out_file,outfmt='clustal')
 
     
 @st.fragment()
