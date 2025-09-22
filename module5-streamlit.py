@@ -7,11 +7,14 @@ from Bio import SeqIO
 from io import StringIO
 from Bio import AlignIO
 from Bio.Align.Applications import ClustalOmegaCommandline
+import pandas as pd
 
 st.title('EvoScore Calculation')
 
 st.header('Submit Sequences for PSA')
 
+#below is code to upload both files, align, and in theory make into clustal but clustal is proving difficult to do thru python
+"""
 target_file = st.file_uploader("",type='fasta')
 
 if target_file is not None:
@@ -50,13 +53,37 @@ if st.button('create PSA'):
     #SeqIO.write(best_alignment, 'clustalPSA.fasta', 'clustal')
     SeqIO.write(records, 'clustalPSA.fasta', 'clustal')
 
-    in_file = "clustalPSA.fasta"
-    out_file = "clustalPSA.aln"
-    clustalomega_cline=ClustalOmegaCommandline(infile=in_file,outfile=out_file,outfmt='clustal')
-    st.write(clustalomega_cline)
-    clustalomega_cline()
+    #in_file = "clustalPSA.fasta"
+    #out_file = "clustalPSA.aln"
+    #clustalomega_cline=ClustalOmegaCommandline(infile=in_file,outfile=out_file,outfmt='clustal')
+    #st.write(clustalomega_cline)
+    #clustalomega_cline()
+"""
 
-    
+#below is code to upload clustal psa (and hopefully the following steps)
+
+psa_file = st.file_uploader("",type='aln')
+
+if psa_file is not None:
+    st.success("PSA file uploaded")
+else:
+    st.info("please upload your PSA file")
+
+if st.button('create python objects'):
+    psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
+    psa_record=SeqIO.read(psa_sio,'fasta')
+    psa=str(psa_record.seq)
+
+consurf_file = st.file_uploader('',type='csv')
+
+if consurf_file is not None:
+    st.success('consurf file uploaded')
+else:
+    st.info('please upload the consurf file')
+
+df = pd.read_csv("consurf.csv")
+
+
 @st.fragment()
 def PSA_download():
     with open('clustalPSA.aln') as f:
