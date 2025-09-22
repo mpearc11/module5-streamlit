@@ -70,7 +70,7 @@ else:
     st.info("please upload your PSA file")
 
 if st.button('create PSA alignment object'):
-    alignment = AlignIO.read(open("ctei_clustal.aln-clustal_num"), "clustal")
+    alignment = AlignIO.read(open(psa_file), "clustal")
     st.write(alignment)
     #psa_sio=StringIO(psa_file.getvalue().decode('utf-8'))
     #psa_record=SeqIO.read(psa_sio,'fasta')
@@ -85,7 +85,7 @@ else:
     st.info('please upload the consurf file')
 
 if st.button('create consurf dataframe')
-    df = pd.read_csv("consurf.csv")
+    df = pd.read_csv(consurf_file)
 
 
 @st.fragment()
