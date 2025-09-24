@@ -13,52 +13,7 @@ st.title('EvoScore Calculation')
 
 st.header('Submit Sequences for PSA')
 
-#below is code to upload both files, align, and in theory make into clustal but clustal is proving difficult to do thru python
-"""
-target_file = st.file_uploader("",type='fasta')
-
-if target_file is not None:
-    st.success("target FASTA file uploaded")
-else:
-    st.info("please upload your target FASTA file")
-
-ps_file = st.file_uploader("",type='fasta',key=2)
-
-if ps_file is not None:
-    st.success("project standard FASTA file uploaded")
-else:
-    st.info('please upload the project standard FASTA file')
-
-if st.button('create PSA'):
-    target_sio=StringIO(target_file.getvalue().decode('utf-8'))
-    target_record=SeqIO.read(target_sio,'fasta')
-    target=str(target_record.seq)
-    query_sio=StringIO(ps_file.getvalue().decode('utf-8'))
-    query_record=SeqIO.read(query_sio,'fasta')
-    query=str(query_record.seq)
-
-    aligner = Align.PairwiseAligner()
-    
-    alignment = aligner.align(target,query)
-    best_alignment = alignment[0]
-    st.write(best_alignment)
-    
-    align_record1 = SeqRecord(best_alignment[0])
-    align_record2 = SeqRecord(best_alignment[1])
-    records = [align_record1, align_record2]
-    st.write(records)
-    
-    #with open('clustalPSA.fasta', "w") as handle:
-        #AlignIO.write(alignment, handle, 'clustal')
-    #SeqIO.write(best_alignment, 'clustalPSA.fasta', 'clustal')
-    SeqIO.write(records, 'clustalPSA.fasta', 'clustal')
-
-    #in_file = "clustalPSA.fasta"
-    #out_file = "clustalPSA.aln"
-    #clustalomega_cline=ClustalOmegaCommandline(infile=in_file,outfile=out_file,outfmt='clustal')
-    #st.write(clustalomega_cline)
-    #clustalomega_cline()
-"""
+#can insert code here later that will allow file upload & do the alignment internally
 
 #below is code to upload clustal psa (and hopefully the following steps)
 
@@ -86,6 +41,10 @@ else:
 
 if st.button('create consurf dataframe'):
     df = pd.read_csv(consurf_file)
+
+#code to convert alignment into pandas dataframe
+
+
 
 
 @st.fragment()
