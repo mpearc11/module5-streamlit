@@ -37,7 +37,7 @@ if st.button('read in PSA alignment'):
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     st.write(alignment)
 
-#convert clustal alignment to pandas dataframe
+#convert clustal alignment to individual sequence strings
 
 seq1 = alignment[0].seq
 seq2 = alignment[1].seq
@@ -45,15 +45,13 @@ seq2 = alignment[1].seq
 st.write(seq1)
 st.write(seq2)
 
+#convert strings to pandas dataframe
 
-#if st.button('create PSA alignment object'):
-    #st.write(psa_file)
-    #psa = psa_file.read()
-    #st.write(psa)
-    
-    #alignment = Align.read(open(psa_file), "fasta")
-    #st.write(alignment)
-    #st.write(type(alignment.sequences))
+data = {'target seq': [seq1],
+            'ps seq': [seq2]}
+    df = pd.DataFrame(data)
+    print(df)
+
 
 consurf_file = st.file_uploader('',type='csv')
 
@@ -65,8 +63,7 @@ else:
 if st.button('create consurf dataframe'):
     df = pd.read_csv(consurf_file)
 
-#code to convert alignment into pandas dataframe
-
+#combine dataframes
 
 
 
