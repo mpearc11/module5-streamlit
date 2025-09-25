@@ -39,13 +39,8 @@ if st.button('read in PSA alignment'):
 
 #convert clustal alignment to pandas dataframe
 
-#seq1 = alignment[0]
-#seq2 = alignment[1]
+seq1 = alignment[0].seq
 
-seqs = alignment.sequences
-st.write(seqs)
-
-seq1 = seqs[0]
 st.write(seq1)
 
 
