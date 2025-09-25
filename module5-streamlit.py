@@ -67,11 +67,13 @@ else:
     st.info('please upload the consurf file')
 
 if st.button('create consurf dataframe'):
-    df = pd.read_csv(consurf_file)
+    consurf_df = pd.read_csv(consurf_file)
+    st.write(consurf_df)
 
 #combine dataframes
 
-#df['Country'] = ['USA', 'UK', 'France']
+    #consurf_df = consurf_df['']
+    #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
 
 
 #@st.fragment()
