@@ -25,7 +25,9 @@ else:
     st.info("please upload your PSA file")
 
 temp = psa_file.read()
+temp2 = psa_file.getvalue().decode("utf-8")
 st.write(temp)
+st.write(temp2)
 
 if st.button('read in PSA alignment'):
     alignment = AlignIO.read(psa_file, 'clustal')
