@@ -10,6 +10,7 @@ from Bio.Align.Applications import ClustalOmegaCommandline
 import pandas as pd
 import tempfile
 import os
+import numpy as np
 
 st.title('EvoScore Calculation')
 
