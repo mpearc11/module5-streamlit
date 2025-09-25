@@ -44,7 +44,7 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-if st.button('read in PSA alignment'):
+#if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
@@ -77,7 +77,7 @@ if st.button('read in PSA alignment'):
     consurf_df = ''
     #df_combined = ''
     
-    if st.button('create consurf dataframe'):
+    #if st.button('create consurf dataframe'):
         consurf_df = pd.read_csv(consurf_file)
         st.write(consurf_df)
         consurf_df = consurf_df['SEQ','COLOR']
