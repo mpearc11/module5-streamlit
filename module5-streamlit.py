@@ -47,10 +47,11 @@ st.write(seq2)
 
 #convert strings to pandas dataframe
 
-data = {'target seq': [seq1],
-            'ps seq': [seq2]}
-df = pd.DataFrame(data)
-print(df)
+if st.button('make df'):
+    data = {'target seq': [seq1],
+                'ps seq': [seq2]}
+    df = pd.DataFrame(data)
+    print(df)
 
 
 consurf_file = st.file_uploader('',type='csv')
