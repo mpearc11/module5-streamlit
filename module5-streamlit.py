@@ -92,20 +92,20 @@ if st.button('read in PSA alignment'):
             
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
-
-            r = 1
+            
             for i in consurf_df['COLOR']:
                 st.write(i)
-                for aa in df_exploded[r,2]:
-                    st.write(r)
-                    st.write(aa)
+                for each row in df_exploded.AsEnumberable.Skip(if(rowIndex<0,0,rowIndex))
+                    rowIndex = df_exploded.Rows.IndexOf(row)
+                #for aa in df_exploded['ps seq']:
+                    st.write(row)
                     #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
-                    df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
+                    df_exploded['color'] = np.where(row != '-', 'found', 'no match')
                     #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
                     if aa != '-':
                         break
                 st.write('out of loop')
-                r = r + 1
+                #r = r + 1
                 #i = i + 1
             #for i in consurf_df['COLOR']:
                 #st.write(i)
