@@ -39,16 +39,14 @@ if st.button('read in PSA alignment'):
 
 #convert clustal alignment to individual sequence strings
 
-seq1 = str(alignment[0].seq)
-seq2 = alignment[1].seq
-
-st.write(seq1)
-st.write(type(seq1))
-st.write(seq2)
+    seq1 = str(alignment[0].seq)
+    seq2 = alignment[1].seq
+    
+    st.write(seq1)
+    st.write(seq2)
 
 #convert strings to pandas dataframe
 
-if st.button('make df'):
     data = {'target seq': [seq1],
                 'ps seq': [seq2]}
     df = pd.DataFrame(data)
