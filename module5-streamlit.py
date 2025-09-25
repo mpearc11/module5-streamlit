@@ -84,12 +84,12 @@ if st.button('read in PSA alignment'):
             st.write(consurf_df)
             consurf_df = consurf_df[['SEQ','COLOR']]
             st.write(consurf_df)
-    frag()
             
             #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
             
             df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             st.write(df_combined)
+    frag()
             
             #for i in consurf_df['COLOR']:
                 #if aa in df_exploded['ps seq'] is not '-' or '':
