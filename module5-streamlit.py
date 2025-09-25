@@ -39,7 +39,7 @@ if st.button('read in PSA alignment'):
 
 #convert clustal alignment to individual sequence strings
 
-seq1 = alignment[0].seq
+seq1 = str(alignment[0].seq)
 seq2 = alignment[1].seq
 
 st.write(seq1)
