@@ -72,7 +72,7 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
     df_exploded['color'] = 0
-    df_exploded = df_exploaded.drop(index=d.index[0], axis=0, inplace=True)
+    df_exploded = df_exploded.drop(index=d.index[0], axis=0, inplace=True)
     st.write(df_exploded)
        
     #declaring more variables outside button if statement
