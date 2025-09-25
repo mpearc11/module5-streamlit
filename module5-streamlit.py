@@ -37,16 +37,16 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-@st.fragment()
-def psa_upload(): 
-    if st.button('read in PSA alignment'):
-        #alignment = AlignIO.read(temp, 'clustal')
-        alignment = AlignIO.read(StringIO(temp), "clustal")
-        #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
-        st.write(alignment)
-    #print(alignment)
-    #st.write(alignment)
-psa_upload()
+#@st.fragment()
+#def psa_upload(): 
+if st.button('read in PSA alignment'):
+    #alignment = AlignIO.read(temp, 'clustal')
+    alignment = AlignIO.read(StringIO(temp), "clustal")
+    #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    st.write(alignment)
+#print(alignment)
+#st.write(alignment)
+#psa_upload()
 st.write(alignment)
     
 #convert clustal alignment to individual sequence strings
