@@ -71,11 +71,9 @@ def psa_upload():
 psa_upload()
 st.write(df_exploded)
 
-
+consurf_file = st.file_uploader('',type='csv')
 @st.fragment()
-def consurf_upload():
-    consurf_file = st.file_uploader('',type='csv')
-    
+def consurf_upload():    
     #declaring more variables outside button if statement
     consurf_df = ''
     df_combined = ''
