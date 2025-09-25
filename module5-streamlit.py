@@ -49,8 +49,8 @@ st.write(seq2)
 
 data = {'target seq': [seq1],
             'ps seq': [seq2]}
-    df = pd.DataFrame(data)
-    print(df)
+df = pd.DataFrame(data)
+print(df)
 
 
 consurf_file = st.file_uploader('',type='csv')
