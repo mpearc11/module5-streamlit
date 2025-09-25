@@ -24,13 +24,12 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-temp = psa_file.read()
-temp2 = psa_file.getvalue().decode("utf-8")
+#temp = psa_file.read()
+temp = psa_file.getvalue().decode("utf-8")
 st.write(temp)
-st.write(temp2)
 
 if st.button('read in PSA alignment'):
-    alignment = AlignIO.read(psa_file, 'clustal')
+    alignment = AlignIO.read(temp, 'clustal')
 
 
 #if st.button('create PSA alignment object'):
