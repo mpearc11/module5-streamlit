@@ -94,7 +94,11 @@ if st.button('read in PSA alignment'):
             #st.write(df_combined)
 
             for i in consurf_df['COLOR']:
-                df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', 'found', 'no match')
+                for aa in df_exploded['ps seq']:
+                    df_exploded['color'] = np.where(aa != '-', i, 'no match')
+                    #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
+                    aa = aa + 1
+                i = i + 1
             #for i in consurf_df['COLOR']:
                 #st.write(i)
                 #if row in df_exploded['ps seq'] is not '-' or '': #will need to edit bc i think using 'i' means that things will ony paste in the same row, need to be able to shift rows
