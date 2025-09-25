@@ -64,6 +64,7 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
 print(df_exploded)
+df_exploded['color'] = 0
 
 
 consurf_file = st.file_uploader('',type='csv')
@@ -86,7 +87,6 @@ if st.button('create consurf dataframe'):
     #consurf_df = consurf_df['SEQ','COLOR']
     #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
 
-    df_exploded['color'] = 0
     #for i in consurf_df['COLOR']:
         #if aa in df_exploded['ps seq'] is not '-' or '':
             #df_exploded.loc[aa, 'color'] = i
