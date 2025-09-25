@@ -93,7 +93,8 @@ if st.button('read in PSA alignment'):
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
                         
-            consurf_df.rename(columns = {'SEQ':'ps seq'})
+            consurf_df = consurf_df.rename(columns = {'SEQ':'ps seq'})
+            st.write(consurf_df)
             df_merged = pd.merge(df_exploded, consurf_df, on='ps seq')
             st.write(df_merged)
 
