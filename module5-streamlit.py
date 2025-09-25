@@ -111,10 +111,10 @@ if st.button('read in PSA alignment'):
                     df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
                     #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
                     if aa != '-':
-                        st.write('final index' + idx)
+                        st.write('final index', idx)
                         st.write(aa)
                         hold = idx + 1
-                        st.write('next index' + hold)
+                        st.write('next index', hold)
                         break
                 st.write('out of loop')
                 st.write(hold)
