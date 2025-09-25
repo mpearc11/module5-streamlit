@@ -1,0 +1,42 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+target                    SSTLTYKERVAAVTKQLAERGISNPGVVNLDLPTPKLY-----EQIIARGEGQIAHGGSV	55
+sp|P22259|PCKA_ECOLI      -----MRVNNGLTPQELEAYGISDVHDIVYNPSYDLLYQEELDPSLTGYERGVLTNLGAV	55
+                                : . . . ::*   ***:   :  :     **      .: .  .* ::: *:*
+
+target                    VVETGIYTGRSAKDKFIVEEPTSQADVDWGT------VNRPVSQENYEKVRGRLMAFLQG	109
+sp|P22259|PCKA_ECOLI      AVDTGIFTGRSPKDKYIVRDDTTRDTFWWADKGKGKNDNKPLSPETWQHLKGLVTRQLSG	115
+                          .*:***:**** ***:**.: *::  . *.        *:*:* *.:::::* :   *.*
+
+target                    RELFVQDVRVGADPQFQRRVRVVNIKAWQNLFARNLFITPETMENEVVPPDFTVIACPDF	169
+sp|P22259|PCKA_ECOLI      KRLFVVDAFCGANPDTRLSVRFITEVAWQAHFVKNMFIRPSDEELAGFKPDFIVMNGAKC	175
+                          :.*** *.  **:*: :  **.:.  ***  *.:*:** *.  *   . *** *:   . 
+
+target                    K-ADPELDGTRSEAFIYMNIAQREIIIGGTAYAGEMKKSIFSIMNYLLPKQAVFPMHCSA	228
+sp|P22259|PCKA_ECOLI      TNPQWKEQGLNSENFVAFNLTERMQLIGGTWYGGEMKKGMFSMMNYLLPLKGIASMHCSA	235
+                          .  : : :* .** *: :*:::*  :**** *.*****.:**:****** :.:  *****
+
+target                    NIGTQDDVAIFFGLSGTGKTTLSTDPKRRMIGDDEHGWSDKGVFNFEGGCYAKTIRLNAV	288
+sp|P22259|PCKA_ECOLI      NVGEKGDVAVFFGLSGTGKTTLSTDPKRRLIGDDEHGWDDDGVFNFEGGCYAKTIKLSKE	295
+                          *:* :.***:*******************:********.*.**************:*.  
+
+target                    AEPVIHNCTQTFGTVLENVVMDEESRTLDLDDDRKTENTRAAYPLSSVGNIK-ADGMGGH	347
+sp|P22259|PCKA_ECOLI      AEPEIYNAIRRD-ALLENVT-VREDGTIDFDDGSKTENTRVSYPIYHIDNIVKPVSKAGH	353
+                          *** *:*. :   ::****.  .*. *:*:**. ******.:**:  :.**    . .**
+
+target                    PSHVILLTADAFGVLPPVSRLTSEQAMYHFISGYTAKLAGTERGVKEPQATFSSCFGGPF	407
+sp|P22259|PCKA_ECOLI      ATKVIFLTADAFGVLPPVSRLTADQTQYHFLSGFTAKLAGTERGITEPTPTFSACFGAAF	413
+                           ::**:****************::*: ***:**:**********:.**  ***:***. *
+
+target                    MVHHPTVYAEMLGKRLSETGAKCWLVNTGWTAGPYGEGHRMPIRETRAIIDSILANELND	467
+sp|P22259|PCKA_ECOLI      LSLHPTQYAEVLVKRMQAAGAQAYLVNTGWN----GTGKRISIKDTRAIIDAILNGSLDN	469
+                          :  *** ***:* **:. :**:.:******.    * *:*: *::******:** ..*::
+
+target                    VATHEDPVFGLAVPTAIDGVETVRLTPRDTWKDGAAFDAKAKDLARQFNENFANFADRVS	527
+sp|P22259|PCKA_ECOLI      AETFTLPMFNLAIPTELPGVDTKILDPRNTYASPEQWQEKAETLAKLFIDNFDKYTDTPA	529
+                          . *.  *:*.**:** : **:*  * **:*: .   :: **: **: * :** :::*  :
+
+target                    D-AIKGAGPKV	537
+sp|P22259|PCKA_ECOLI      GAALVAAGPKL	540
+                          . *: .****:
