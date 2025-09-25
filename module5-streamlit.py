@@ -29,7 +29,8 @@ temp = psa_file.getvalue().decode("utf-8")
 st.write(temp)
 
 if st.button('read in PSA alignment'):
-    alignment = AlignIO.read(temp, 'clustal')
+    #alignment = AlignIO.read(temp, 'clustal')
+    alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
 
 
 #if st.button('create PSA alignment object'):
