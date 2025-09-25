@@ -43,6 +43,7 @@ seq1 = alignment[0].seq
 seq2 = alignment[1].seq
 
 st.write(seq1)
+st.write(type(seq1))
 st.write(seq2)
 
 #convert strings to pandas dataframe
