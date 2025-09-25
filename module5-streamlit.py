@@ -19,8 +19,11 @@ st.header('Submit Sequences for PSA')
 
 psa_file = st.file_uploader("",type='aln')
 st.write(psa_file)
-alignment = AlignIO.read(psa_file, 'clustal')
-alignment_test = AlignIO.read('ctei_clustal.aln', 'clustal')
+with open(psa_file, 'wb') as f:
+    f.write(psa_file.read())
+    alignment = AlignIO.read(psa_file, 'clustal')
+    result_stream.close()
+#alignment = AlignIO.read(psa_file, 'clustal')
 
 if psa_file is not None:
     st.success("PSA file uploaded")
