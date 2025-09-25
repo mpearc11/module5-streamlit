@@ -92,25 +92,25 @@ if st.button('read in PSA alignment'):
             
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
-            
-            for i in consurf_df['COLOR']:
-                st.write(i)
-                for each row in df_exploded.AsEnumberable.Skip(if(rowIndex<0,0,rowIndex))
-                    rowIndex = df_exploded.Rows.IndexOf(row)
-                #for aa in df_exploded['ps seq']:
-                    st.write(row)
-                    #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
-                    df_exploded['color'] = np.where(row != '-', 'found', 'no match')
-                    #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
-                    if aa != '-':
-                        break
-                st.write('out of loop')
-                #r = r + 1
-                #i = i + 1
+
+            while aa in df_exploded['ps seq'] != '-':
+                st.write(aa)
+                for i in consurf_df['COLOR']:
+                    st.write(i)
+                    df_exploded['color'] = i
+                    
             #for i in consurf_df['COLOR']:
                 #st.write(i)
-                #if row in df_exploded['ps seq'] is not '-' or '': #will need to edit bc i think using 'i' means that things will ony paste in the same row, need to be able to shift rows
-                    #df_exploded.loc[row, 'color'] = i
+                #for aa in df_exploded['ps seq']:
+                    #st.write(aa)
+                    #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
+                    #df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
+                    #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
+                    #if aa != '-':
+                        #break
+                #st.write('out of loop')
+                #r = r + 1
+                #i = i + 1
             st.write(df_exploded)
     frag()
 
