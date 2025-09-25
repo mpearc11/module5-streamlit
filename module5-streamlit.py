@@ -24,8 +24,8 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-temp = open(psa_file, 'clustal')
-st.write(str(temp))
+temp = psa_file.read()
+st.write(temp)
 
 if st.button('read in PSA alignment'):
     alignment = AlignIO.read(psa_file, 'clustal')
