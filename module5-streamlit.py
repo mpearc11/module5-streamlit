@@ -40,8 +40,10 @@ if st.button('read in PSA alignment'):
 #convert clustal alignment to pandas dataframe
 
 seq1 = alignment[0].seq
+seq2 = alignment[1].seq
 
 st.write(seq1)
+st.write(seq2)
 
 
 #if st.button('create PSA alignment object'):
