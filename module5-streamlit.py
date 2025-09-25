@@ -99,12 +99,25 @@ if st.button('read in PSA alignment'):
                     #st.write(i)
                     #df_exploded['color'] = i
 
+
+            for idx, aa in enumerate(df_exploded['ps seq']):
+                st.write(idx)
+                st.write(aa)
+                if aa != '-':
+                    i = hold
+                    for i in consurf_df['COLOR']:
+                        st.write(i)
+                        st.write(idx)
+                        df_exploded['color'] = i
+                        hold = i + 1
+                else:
+                    break
+                    
             idx = 0
             for i in consurf_df['COLOR']:
                 st.write(i)
                 st.write(idx)
                 for idx, aa in enumerate(df_exploded['ps seq']):
-                    idx = 6
                     st.write(idx)
                     st.write(aa)
                     #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
