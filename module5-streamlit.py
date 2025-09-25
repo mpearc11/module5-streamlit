@@ -26,10 +26,13 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-#temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
-temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
-#temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
-st.write(temp)
+@st.cache_data
+def format_psa():
+    #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
+    temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
+    #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
+    return temp
+    st.write(temp)
 
 #declaring variables outside of button if statement so i can access them after the button step
 df = ''
