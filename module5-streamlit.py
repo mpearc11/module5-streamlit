@@ -19,10 +19,8 @@ st.header('Submit Sequences for PSA')
 
 psa_file = st.file_uploader("",type='aln')
 st.write(psa_file)
-with open(psa_file, 'wb') as f:
-    f.write(psa_file.read())
-    alignment = AlignIO.read(psa_file, 'clustal')
-    result_stream.close()
+handle = open(psa_file, 'clustal')
+alignment = AlignIO.read(handle, 'clustal')
 #alignment = AlignIO.read(psa_file, 'clustal')
 
 if psa_file is not None:
