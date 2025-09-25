@@ -44,7 +44,7 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-#if st.button('read in PSA alignment'):
+if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
@@ -76,26 +76,27 @@ df_exploded = ''
     #declaring more variables outside button if statement
     consurf_df = ''
     #df_combined = ''
-    
-    #if st.button('create consurf dataframe'):
-        consurf_df = pd.read_csv(consurf_file)
-        st.write(consurf_df)
-        consurf_df = consurf_df['SEQ','COLOR']
-        st.write(consurf_df)
-        
-        #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
-        
-        #consurf_df = consurf_df['SEQ','COLOR']
-        #st.write(consurf_df)
-        #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
-        #st.write(df_combined)
-        
-        #for i in consurf_df['COLOR']:
-            #if aa in df_exploded['ps seq'] is not '-' or '':
-                #df_exploded.loc[aa, 'color'] = i
 
-#st.write(df_exploded)
-#align_df()
+    @st.fragment()
+    def frag():
+        if st.button('create consurf dataframe'):
+            consurf_df = pd.read_csv(consurf_file)
+            st.write(consurf_df)
+            consurf_df = consurf_df['SEQ','COLOR']
+            st.write(consurf_df)
+    frag()
+            
+            #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
+            
+            #consurf_df = consurf_df['SEQ','COLOR']
+            #st.write(consurf_df)
+            #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
+            #st.write(df_combined)
+            
+            #for i in consurf_df['COLOR']:
+                #if aa in df_exploded['ps seq'] is not '-' or '':
+                    #df_exploded.loc[aa, 'color'] = i
+
 
 
 #@st.fragment()
