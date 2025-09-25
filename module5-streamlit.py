@@ -28,16 +28,12 @@ else:
 
 #temp = psa_file.read()
 #temp = psa_file.getvalue().decode("utf-8")
-#st.write(temp)
-
-with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-    temp_file.write(psa_file)
-    temp_file_path = temp_file.name
+temp = psa_file.getvalue()
+st.write(temp)
 
 if st.button('read in PSA alignment'):
-    #alignment = AlignIO.read(temp, 'clustal')
+    alignment = AlignIO.read(temp, 'clustal')
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
-    alignment = AlignIO.read(temp_file_path, 'clustal')
     st.write(alignment)
 
 
