@@ -99,7 +99,7 @@ if st.button('read in PSA alignment'):
                     #st.write(i)
                     #df_exploded['color'] = i
 
-            idx = 0
+            idx = 6
             for i in consurf_df['COLOR']:
                 st.write(i)
                 st.write(idx)
