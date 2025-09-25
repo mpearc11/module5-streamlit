@@ -110,9 +110,10 @@ if st.button('read in PSA alignment'):
                     if aa != '-':
                         st.write('final index')
                         st.write(idx)
+                        idx = idx + 1
                         break
                 st.write('out of loop')
-                idx = idx + 1
+                #idx = idx + 1
                 #r = r + 1
                 #i = i + 1
             st.write(df_exploded)
