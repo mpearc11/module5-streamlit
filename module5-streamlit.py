@@ -91,8 +91,8 @@ if st.button('read in PSA alignment'):
             #st.write(df_combined)
             
             for i in consurf_df['COLOR']:
-                if aa in df_exploded['ps seq'] is not '-' or '':
-                    df_exploded.loc[aa, 'color'] = i
+                if i in df_exploded['ps seq'] is not '-' or '': #will need to edit bc i think using 'i' means that things will ony paste in the same row, need to be able to shift rows
+                    df_exploded.loc[i, 'color'] = i
             st.write(df_exploded)
     frag()
 
