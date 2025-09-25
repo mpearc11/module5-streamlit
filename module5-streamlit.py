@@ -69,6 +69,7 @@ def psa_upload():
     print(df_exploded)
     df_exploded['color'] = 0
     st.write(df_exploded)
+    st.rerun()
 psa_upload()
 st.write(df_exploded)
 
