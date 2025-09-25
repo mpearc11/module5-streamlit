@@ -92,42 +92,28 @@ if st.button('read in PSA alignment'):
             
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
-
-            #while r in df_exploded['ps seq'] != '-':
-                #st.write(r)
-                #for i in consurf_df['COLOR']:
-                    #st.write(i)
-                    #df_exploded['color'] = i
-
-            hold = 0
-            for idx, aa in enumerate(df_exploded['ps seq']):
-                st.write(idx)
-                st.write(aa)
-                if aa != '-':
-                    i = hold
-                    for i in consurf_df['COLOR']:
-                        st.write(i)
-                        st.write(idx)
-                        df_exploded['color'] = i
-                        hold = i + 1
-                st.write(hold)
                         
-                    
-            #idx = 0
-            #for i in consurf_df['COLOR']:
-                #st.write(i)
-                #st.write(idx)
-                #for idx, aa in enumerate(df_exploded['ps seq']):
-                    #st.write(idx)
-                    #st.write(aa)
+            consurf_df.rename(columns = {'SEQ':'ps seq'})
+            df_merged = pd.merge(df_exploded, consurf_df, on='ps seq')
+            st.write(df_merged)
+
+            '''
+            idx = 0
+            for i in consurf_df['COLOR']:
+                st.write(i)
+                st.write(idx)
+                for idx, aa in enumerate(df_exploded['ps seq']):
+                    st.write(idx)
+                    st.write(aa)
                     #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
-                    #df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
+                    df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
                     #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
-                    #if aa != '-':
-                        #idx = idx + 1
-                        #break
-                #st.write('out of loop')
-            #st.write(df_exploded)
+                    if aa != '-':
+                        idx = idx + 1
+                        break
+                st.write('out of loop')
+            st.write(df_exploded)
+            '''
     frag()
 
 
