@@ -26,7 +26,6 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-##have to figure out how to properly read in the clustal file
 #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
 temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
 #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
@@ -40,7 +39,11 @@ if st.button('read in PSA alignment'):
 
 #convert clustal alignment to pandas dataframe
 
+seq1 = alignment[0]
+seq2 = alignment[1]
 
+st.write(seq1)
+st.write(seq2)
 
 
 #if st.button('create PSA alignment object'):
