@@ -82,7 +82,7 @@ if st.button('read in PSA alignment'):
         if st.button('create consurf dataframe'):
             consurf_df = pd.read_csv(consurf_file)
             st.write(consurf_df)
-            consurf_df = consurf_df['SEQ','COLOR']
+            consurf_df = consurf_df[['SEQ','COLOR']]
             st.write(consurf_df)
     frag()
             
