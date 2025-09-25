@@ -51,8 +51,9 @@ if st.button('read in PSA alignment'):
                 'ps seq': [seq2]}
     df = pd.DataFrame(data)
     st.write(df)
-    df_exploded = df['target seq'].str.split('').explode() #.reset_index(drop=True)
-    df_exploded = df_exploded['ps seq'].str.split('').explode().reset_index(drop=True)
+    df1 = df['target seq'].str.split('').explode() #.reset_index(drop=True)
+    df2 = df['ps seq'].str.split('').explode().reset_index(drop=True)
+    df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
 
 
