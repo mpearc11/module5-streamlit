@@ -31,8 +31,7 @@ else:
 #st.write(temp)
 
 with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-    for chunk in psa_file.chunks():
-        temp_file.write(chunk)
+    temp_file.write(psa_file)
     temp_file_path = temp_file.name
 
 if st.button('read in PSA alignment'):
