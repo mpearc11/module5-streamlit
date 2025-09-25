@@ -27,6 +27,12 @@ else:
     st.info("please upload your PSA file")
 
 
+if consurf_file is not None:
+    st.success('consurf file uploaded')
+else:
+    st.info('please upload the consurf file')
+
+
 #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
 temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
 #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
@@ -73,11 +79,6 @@ if st.button('read in PSA alignment'):
     consurf_df = ''
     df_combined = ''
     
-    if consurf_file is not None:
-        st.success('consurf file uploaded')
-    else:
-        st.info('please upload the consurf file')
-    
     if st.button('create consurf dataframe'):
         consurf_df = pd.read_csv(consurf_file)
         st.write(consurf_df)
@@ -88,8 +89,8 @@ if st.button('read in PSA alignment'):
         
         #consurf_df = consurf_df['SEQ','COLOR']
         #st.write(consurf_df)
-        df_combined = pd.concat([df_exploded, consurf_df], axis=1)
-        st.write(df_combined)
+        #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
+        #st.write(df_combined)
         
         #for i in consurf_df['COLOR']:
             #if aa in df_exploded['ps seq'] is not '-' or '':
