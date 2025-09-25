@@ -26,13 +26,11 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-@st.cache_data
-def format_psa():
-    #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
-    temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
-    #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
-    return temp
-    st.write(temp)
+
+#temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
+temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
+#temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
+st.write(temp)
 
 #declaring variables outside of button if statement so i can access them after the button step
 df = ''
@@ -40,62 +38,51 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-#@st.fragment()
-#def psa_upload(): 
 if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     st.write(alignment)
-#print(alignment)
-#st.write(alignment)
-#psa_upload()
-#st.write(alignment)
     
-#convert clustal alignment to individual sequence strings
+    #convert clustal alignment to individual sequence strings
+    
+    seq1 = str(alignment[0].seq)
+    seq2 = str(alignment[1].seq)
+    
+    st.write(seq1)
+    st.write(seq2)
+    
+    #convert strings to pandas dataframe
+    
+    data = {'target seq': [seq1],
+                'ps seq': [seq2]}
+    df = pd.DataFrame(data)
+    st.write(df)
+    df1 = df['target seq'].str.split('').explode().reset_index(drop=True)
+    st.write(df1)
+    df2 = df['ps seq'].str.split('').explode().reset_index(drop=True)
+    st.write(df2)
+    df_exploded = pd.concat([df1, df2], axis=1)
+    st.write(df_exploded)
+    df_exploded['color'] = 0
+    st.write(df_exploded)
 
-seq1 = str(alignment[0].seq)
-seq2 = str(alignment[1].seq)
-
-st.write(seq1)
-st.write(seq2)
-
-#convert strings to pandas dataframe
-
-data = {'target seq': [seq1],
-            'ps seq': [seq2]}
-df = pd.DataFrame(data)
-st.write(df)
-df1 = df['target seq'].str.split('').explode().reset_index(drop=True)
-st.write(df1)
-df2 = df['ps seq'].str.split('').explode().reset_index(drop=True)
-st.write(df2)
-df_exploded = pd.concat([df1, df2], axis=1)
-st.write(df_exploded)
-df_exploded['color'] = 0
-st.write(df_exploded)
-
-consurf_file = st.file_uploader('',type='csv')
-   
-#declaring more variables outside button if statement
-consurf_df = ''
-df_combined = ''
-
-if consurf_file is not None:
-    st.success('consurf file uploaded')
-else:
-    st.info('please upload the consurf file')
-
-#@st.fragment()
-#def consurf_upload():     
-if st.button('create consurf dataframe'):
-    consurf_df = pd.read_csv(consurf_file)
-    st.write(consurf_df)
-    consurf_df = consurf_df['SEQ','COLOR']
-    st.write(consurf_df)
-#consurf_upload()
-#print(consurf_df)
-st.write(consurf_df)
+    consurf_file = st.file_uploader('',type='csv')
+       
+    #declaring more variables outside button if statement
+    consurf_df = ''
+    df_combined = ''
+    
+    if consurf_file is not None:
+        st.success('consurf file uploaded')
+    else:
+        st.info('please upload the consurf file')
+    
+    if st.button('create consurf dataframe'):
+        consurf_df = pd.read_csv(consurf_file)
+        st.write(consurf_df)
+        consurf_df = consurf_df['SEQ','COLOR']
+        st.write(consurf_df)
 
 #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
 
