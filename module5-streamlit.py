@@ -97,7 +97,7 @@ if st.button('read in PSA alignment'):
                 st.write(i)
                 for aa in df_exploded['ps seq']:
                     st.write(aa)
-                    df_exploded['color'] = np.where(df_exploded.iloc[aa,1] != '-', 'found', 'no match')
+                    df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', 'found', 'no match')
                     #df_exploded['color'] = np.where(aa != '-', i, 'no match')
                     #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', 'found', 'no match')
                     if aa != '-':
