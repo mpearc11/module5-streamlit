@@ -67,21 +67,23 @@ print(df_exploded)
 df_exploded['color'] = 0
 st.write(df_exploded)
 
-
-consurf_file = st.file_uploader('',type='csv')
-
 #declaring more variables outside button if statement
 consurf_df = ''
 df_combined = ''
 
-if consurf_file is not None:
-    st.success('consurf file uploaded')
-else:
-    st.info('please upload the consurf file')
-
-if st.button('create consurf dataframe'):
-    consurf_df = pd.read_csv(consurf_file)
-    st.write(consurf_df)
+@st.fragment()
+def consurf_upload():
+    consurf_file = st.file_uploader('',type='csv')
+    
+    if consurf_file is not None:
+        st.success('consurf file uploaded')
+    else:
+        st.info('please upload the consurf file')
+    
+    if st.button('create consurf dataframe'):
+        consurf_df = pd.read_csv(consurf_file)
+        st.write(consurf_df)
+consurf_upload()
 
 #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
 
