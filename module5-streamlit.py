@@ -93,8 +93,8 @@ if st.button('read in PSA alignment'):
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
 
-            while aa in df_exploded['ps seq'] != '-':
-                st.write(aa)
+            while r in df_exploded['ps seq'] != '-':
+                st.write(r)
                 for i in consurf_df['COLOR']:
                     st.write(i)
                     df_exploded['color'] = i
