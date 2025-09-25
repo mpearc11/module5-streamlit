@@ -26,7 +26,8 @@ else:
 
 if st.button('read in PSA alignment'):
     stringio = StringIO(psa_file.getvalue().decode('utf-8'))
-    record = SeqIO.read(stringio, 'fasta')
+    st.write(stringio)
+    record = SeqIO.read(stringio, 'clustal')
     psa = str(record.seq)
     st.write(psa)
     alignment = Align.read(open(psa), 'clustal')
