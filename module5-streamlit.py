@@ -24,20 +24,9 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-st.write(psa_file)
-handle = open(psa_file, 'clustal')
-alignment = AlignIO.read(handle, 'clustal')
-#alignment = AlignIO.read(psa_file, 'clustal')
-
 if st.button('read in PSA alignment'):
-    stringio = StringIO(psa_file.getvalue().decode('utf-8'))
-    st.write(stringio)
-    record = SeqIO.read(stringio, 'clustal')
-    psa = str(record.seq)
-    st.write(psa)
-    alignment = Align.read(open(psa), 'clustal')
-    st.write(alignment)
-    st.write(type(alignment.sequences))
+    alignment = AlignIO.read(psa_file, 'clustal')
+
 
 #if st.button('create PSA alignment object'):
     #st.write(psa_file)
