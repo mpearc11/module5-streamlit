@@ -34,8 +34,8 @@ st.write(temp)
 
 if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
-    alignment = AlignIO.read(StringIO(temp), "clustal#")
-    alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    alignment = AlignIO.read(StringIO(temp), "clustal")
+    #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     st.write(alignment)
 
 #convert clustal alignment to pandas dataframe
