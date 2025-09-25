@@ -50,7 +50,7 @@ if st.button('read in PSA alignment'):
     data = {'target seq': [seq1],
                 'ps seq': [seq2]}
     df = pd.DataFrame(data)
-    print(df)
+    st.write(df)
 
 
 consurf_file = st.file_uploader('',type='csv')
