@@ -20,6 +20,8 @@ st.header('Submit Sequences for PSA')
 #below is code to upload clustal psa (and hopefully the following steps)
 
 psa_file = st.file_uploader("",type='aln')
+consurf_file = st.file_uploader('',type='csv')
+
 @st.fragment()
 def psa_upload():    
     if psa_file is not None:
@@ -70,7 +72,6 @@ def psa_upload():
 psa_upload()
 st.write(df_exploded)
 
-consurf_file = st.file_uploader('',type='csv')
 @st.fragment()
 def consurf_upload():    
     #declaring more variables outside button if statement
