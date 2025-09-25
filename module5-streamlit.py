@@ -47,7 +47,7 @@ if st.button('read in PSA alignment'):
 #print(alignment)
 #st.write(alignment)
 #psa_upload()
-st.write(alignment)
+#st.write(alignment)
     
 #convert clustal alignment to individual sequence strings
 
@@ -83,32 +83,32 @@ if consurf_file is not None:
 else:
     st.info('please upload the consurf file')
 
-@st.fragment()
-def consurf_upload():     
-    if st.button('create consurf dataframe'):
-        consurf_df = pd.read_csv(consurf_file)
-        st.write(consurf_df)
-        consurf_df = consurf_df['SEQ','COLOR']
-        st.write(consurf_df)
-consurf_upload()
-print(consurf_df)
+#@st.fragment()
+#def consurf_upload():     
+if st.button('create consurf dataframe'):
+    consurf_df = pd.read_csv(consurf_file)
+    st.write(consurf_df)
+    consurf_df = consurf_df['SEQ','COLOR']
+    st.write(consurf_df)
+#consurf_upload()
+#print(consurf_df)
 st.write(consurf_df)
 
 #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
 
-@st.fragment()
-def align_df():
-    #consurf_df = consurf_df['SEQ','COLOR']
-    #st.write(consurf_df)
-    df_combined = pd.concat([df_exploded, consurf_df], axis=1)
-    st.write(df_combined)
+#@st.fragment()
+#def align_df():
+#consurf_df = consurf_df['SEQ','COLOR']
+#st.write(consurf_df)
+df_combined = pd.concat([df_exploded, consurf_df], axis=1)
+st.write(df_combined)
 
-    #for i in consurf_df['COLOR']:
-        #if aa in df_exploded['ps seq'] is not '-' or '':
-            #df_exploded.loc[aa, 'color'] = i
+#for i in consurf_df['COLOR']:
+    #if aa in df_exploded['ps seq'] is not '-' or '':
+        #df_exploded.loc[aa, 'color'] = i
 
-    #st.write(df_exploded)
-align_df()
+#st.write(df_exploded)
+#align_df()
 
 
 #@st.fragment()
