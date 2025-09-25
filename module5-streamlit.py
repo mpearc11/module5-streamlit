@@ -63,6 +63,7 @@ if st.button('read in PSA alignment'):
     st.write(df2)
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
+print(df_exploded)
 
 
 consurf_file = st.file_uploader('',type='csv')
