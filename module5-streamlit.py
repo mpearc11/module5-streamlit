@@ -24,14 +24,23 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-if st.button('create PSA alignment object'):
-    st.write(psa_file)
+if st.button('read in PSA alignment'):
+    stringio = StringIO(psa_file.getvalue().decode('utf-8'))
+    record = SeqIO.read(stringio, 'fasta')
+    psa = str(record.seq)
+    st.write(psa)
+    alignment = Align.read(open(psa), 'clustal')
+    st.write(alignment)
+    st.write(type(alignment.sequences))
+
+#if st.button('create PSA alignment object'):
+    #st.write(psa_file)
     #psa = psa_file.read()
     #st.write(psa)
     
-    alignment = Align.read(open(psa_file), "fasta")
-    st.write(alignment)
-    st.write(type(alignment.sequences))
+    #alignment = Align.read(open(psa_file), "fasta")
+    #st.write(alignment)
+    #st.write(type(alignment.sequences))
 
 consurf_file = st.file_uploader('',type='csv')
 
