@@ -72,6 +72,7 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
     df_exploded['color'] = 0
+    df_exploded = df_exploaded.drop(index=d.index[0], axis=0, inplace=True)
     st.write(df_exploded)
        
     #declaring more variables outside button if statement
@@ -84,6 +85,7 @@ if st.button('read in PSA alignment'):
             consurf_df = pd.read_csv(consurf_file)
             st.write(consurf_df)
             consurf_df = consurf_df[['SEQ','COLOR']]
+            consurf_df = consurf_df.drop(index=d.index[0], axis=0, inplace=True)
             st.write(consurf_df)
             
             #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
@@ -92,7 +94,7 @@ if st.button('read in PSA alignment'):
             #st.write(df_combined)
 
             for i in consurf_df['COLOR']:
-                df_exploded['color'] = np.where(df_exploded['ps seq'] != '-' or '', 'found', 'no match')
+                df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', 'found', 'no match')
             #for i in consurf_df['COLOR']:
                 #st.write(i)
                 #if row in df_exploded['ps seq'] is not '-' or '': #will need to edit bc i think using 'i' means that things will ony paste in the same row, need to be able to shift rows
