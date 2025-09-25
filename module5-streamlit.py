@@ -27,6 +27,7 @@ else:
 if st.button('create PSA alignment object'):
     st.write(psa_file)
     psa = psa_file.read()
+    st.write(psa)
     
     alignment = Align.read(open(psa), "fasta")
     st.write(alignment)
