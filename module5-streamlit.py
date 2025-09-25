@@ -65,6 +65,7 @@ if st.button('read in PSA alignment'):
     st.write(df_exploded)
 print(df_exploded)
 df_exploded['color'] = 0
+st.write(df_exploded)
 
 
 consurf_file = st.file_uploader('',type='csv')
@@ -91,7 +92,7 @@ if st.button('create consurf dataframe'):
         #if aa in df_exploded['ps seq'] is not '-' or '':
             #df_exploded.loc[aa, 'color'] = i
 
-    st.write(df_exploded)
+    #st.write(df_exploded)
 
 
 #@st.fragment()
