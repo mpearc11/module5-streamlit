@@ -42,7 +42,7 @@ if st.button('read in PSA alignment'):
 seq1 = alignment[0]
 seq2 = alignment[1]
 
-st.write(seq1)
+st.write(seq1.sequence)
 st.write(seq2)
 
 
