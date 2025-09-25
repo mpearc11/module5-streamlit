@@ -8,6 +8,8 @@ from io import StringIO
 from Bio import AlignIO
 from Bio.Align.Applications import ClustalOmegaCommandline
 import pandas as pd
+import tempfile
+import os
 
 st.title('EvoScore Calculation')
 
@@ -25,12 +27,18 @@ else:
     st.info("please upload your PSA file")
 
 #temp = psa_file.read()
-temp = psa_file.getvalue().decode("utf-8")
-st.write(temp)
+#temp = psa_file.getvalue().decode("utf-8")
+#st.write(temp)
+
+with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+    for chunk in psa_file.chunks():
+        temp_file.write(chunk)
+    temp_file_path = temp_file.name
 
 if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
-    alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    alignment = AlignIO.read(temp_file_path, 'clustal')
     st.write(alignment)
 
 
