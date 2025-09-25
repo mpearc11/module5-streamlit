@@ -26,15 +26,21 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
+##have to figure out how to properly read in the clustal file
 #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
 temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
 #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
 st.write(temp)
 
 if st.button('read in PSA alignment'):
-    alignment = AlignIO.read(temp, 'clustal')
-    #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    #alignment = AlignIO.read(temp, 'clustal')
+    alignment = AlignIO.read(StringIO(temp), "clustal#")
+    alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     st.write(alignment)
+
+#convert clustal alignment to pandas dataframe
+
+
 
 
 #if st.button('create PSA alignment object'):
