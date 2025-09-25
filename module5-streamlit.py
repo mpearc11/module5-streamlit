@@ -84,6 +84,8 @@ def consurf_upload():
         consurf_df = pd.read_csv(consurf_file)
         st.write(consurf_df)
 consurf_upload()
+print(consurf_df)
+st.write(consurf_df)
 
 #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
 
