@@ -99,7 +99,7 @@ if st.button('read in PSA alignment'):
                     #st.write(i)
                     #df_exploded['color'] = i
 
-
+            hold = 0
             for idx, aa in enumerate(df_exploded['ps seq']):
                 st.write(idx)
                 st.write(aa)
@@ -110,6 +110,7 @@ if st.button('read in PSA alignment'):
                         st.write(idx)
                         df_exploded['color'] = i
                         hold = i + 1
+                st.write(hold)
                         
                     
             #idx = 0
