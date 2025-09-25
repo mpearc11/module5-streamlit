@@ -31,6 +31,12 @@ temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but st
 #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
 st.write(temp)
 
+#declaring variables outside of button if statement so i can access them after the button step
+df = ''
+df1 = ''
+df2 = ''
+df_exploded = ''
+
 if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
@@ -58,29 +64,33 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
 
-    
-    consurf_file = st.file_uploader('',type='csv')
-    
-    if consurf_file is not None:
-        st.success('consurf file uploaded')
-    else:
-        st.info('please upload the consurf file')
-    
-    if st.button('create consurf dataframe'):
-        consurf_df = pd.read_csv(consurf_file)
-        st.write(consurf_df)
-    
-    #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
-    
-        #consurf_df = consurf_df['SEQ','COLOR']
-        #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
-    
-        df_exploded['color'] = []
-        for i in consurf_df['COLOR']:
-            if aa in df_exploded['ps seq'] is not '-' or '':
-                df_exploded.loc[aa, 'color'] = i
-    
-        st.write(df_exploded)
+
+consurf_file = st.file_uploader('',type='csv')
+
+#declaring more variables outside button if statement
+consurf_df = ''
+df_combined = ''
+
+if consurf_file is not None:
+    st.success('consurf file uploaded')
+else:
+    st.info('please upload the consurf file')
+
+if st.button('create consurf dataframe'):
+    consurf_df = pd.read_csv(consurf_file)
+    st.write(consurf_df)
+
+#combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
+
+    #consurf_df = consurf_df['SEQ','COLOR']
+    #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
+
+    df_exploded['color'] = []
+    for i in consurf_df['COLOR']:
+        if aa in df_exploded['ps seq'] is not '-' or '':
+            df_exploded.loc[aa, 'color'] = i
+
+    st.write(df_exploded)
 
 
 #@st.fragment()
