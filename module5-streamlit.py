@@ -53,7 +53,7 @@ if st.button('read in PSA alignment'):
     st.write(df)
     df_exploded = df['target seq'].str.split('').explode().reset_index(drop=True)
     df_exploded = df['ps seq'].str.split('').explode().reset_index(drop=True)
-    st.write(df)
+    st.write(df_exploded)
 
 
 consurf_file = st.file_uploader('',type='csv')
