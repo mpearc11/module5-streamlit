@@ -20,13 +20,13 @@ st.header('Submit Sequences for PSA')
 #below is code to upload clustal psa (and hopefully the following steps)
 
 psa_file = st.file_uploader("",type='aln')
-
 if psa_file is not None:
     st.success("PSA file uploaded")
 else:
     st.info("please upload your PSA file")
 
 
+consurf_file = st.file_uploader('',type='csv')
 if consurf_file is not None:
     st.success('consurf file uploaded')
 else:
@@ -72,12 +72,10 @@ if st.button('read in PSA alignment'):
     st.write(df_exploded)
     df_exploded['color'] = 0
     st.write(df_exploded)
-
-    consurf_file = st.file_uploader('',type='csv')
        
     #declaring more variables outside button if statement
     consurf_df = ''
-    df_combined = ''
+    #df_combined = ''
     
     if st.button('create consurf dataframe'):
         consurf_df = pd.read_csv(consurf_file)
