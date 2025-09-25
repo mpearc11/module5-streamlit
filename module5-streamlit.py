@@ -86,10 +86,10 @@ if st.button('create consurf dataframe'):
     #consurf_df = consurf_df['SEQ','COLOR']
     #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
 
-    df_exploded['color'] = []
-    for i in consurf_df['COLOR']:
-        if aa in df_exploded['ps seq'] is not '-' or '':
-            df_exploded.loc[aa, 'color'] = i
+    df_exploded['color'] = 0
+    #for i in consurf_df['COLOR']:
+        #if aa in df_exploded['ps seq'] is not '-' or '':
+            #df_exploded.loc[aa, 'color'] = i
 
     st.write(df_exploded)
 
