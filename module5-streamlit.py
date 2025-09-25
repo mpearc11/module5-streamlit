@@ -19,61 +19,66 @@ st.header('Submit Sequences for PSA')
 
 #below is code to upload clustal psa (and hopefully the following steps)
 
-psa_file = st.file_uploader("",type='aln')
-
-if psa_file is not None:
-    st.success("PSA file uploaded")
-else:
-    st.info("please upload your PSA file")
-
-#temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
-temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
-#temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
-st.write(temp)
-
-#declaring variables outside of button if statement so i can access them after the button step
-df = ''
-df1 = ''
-df2 = ''
-df_exploded = ''
-
-if st.button('read in PSA alignment'):
-    #alignment = AlignIO.read(temp, 'clustal')
-    alignment = AlignIO.read(StringIO(temp), "clustal")
-    #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
-    st.write(alignment)
-
-#convert clustal alignment to individual sequence strings
-
-    seq1 = str(alignment[0].seq)
-    seq2 = str(alignment[1].seq)
+@st.fragment()
+def psa_upload():
+    psa_file = st.file_uploader("",type='aln')
     
-    st.write(seq1)
-    st.write(seq2)
-
-#convert strings to pandas dataframe
-
-    data = {'target seq': [seq1],
-                'ps seq': [seq2]}
-    df = pd.DataFrame(data)
-    st.write(df)
-    df1 = df['target seq'].str.split('').explode().reset_index(drop=True)
-    st.write(df1)
-    df2 = df['ps seq'].str.split('').explode().reset_index(drop=True)
-    st.write(df2)
-    df_exploded = pd.concat([df1, df2], axis=1)
+    if psa_file is not None:
+        st.success("PSA file uploaded")
+    else:
+        st.info("please upload your PSA file")
+    
+    #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
+    temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
+    #temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
+    st.write(temp)
+    
+    #declaring variables outside of button if statement so i can access them after the button step
+    df = ''
+    df1 = ''
+    df2 = ''
+    df_exploded = ''
+    
+    if st.button('read in PSA alignment'):
+        #alignment = AlignIO.read(temp, 'clustal')
+        alignment = AlignIO.read(StringIO(temp), "clustal")
+        #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+        st.write(alignment)
+    
+    #convert clustal alignment to individual sequence strings
+    
+        seq1 = str(alignment[0].seq)
+        seq2 = str(alignment[1].seq)
+        
+        st.write(seq1)
+        st.write(seq2)
+    
+    #convert strings to pandas dataframe
+    
+        data = {'target seq': [seq1],
+                    'ps seq': [seq2]}
+        df = pd.DataFrame(data)
+        st.write(df)
+        df1 = df['target seq'].str.split('').explode().reset_index(drop=True)
+        st.write(df1)
+        df2 = df['ps seq'].str.split('').explode().reset_index(drop=True)
+        st.write(df2)
+        df_exploded = pd.concat([df1, df2], axis=1)
+        st.write(df_exploded)
+    print(df_exploded)
+    df_exploded['color'] = 0
     st.write(df_exploded)
-print(df_exploded)
-df_exploded['color'] = 0
+psa_upload()
 st.write(df_exploded)
 
-#declaring more variables outside button if statement
-consurf_df = ''
-df_combined = ''
 
 @st.fragment()
 def consurf_upload():
     consurf_file = st.file_uploader('',type='csv')
+    
+    #declaring more variables outside button if statement
+    consurf_df = ''
+    df_combined = ''
     
     if consurf_file is not None:
         st.success('consurf file uploaded')
@@ -83,6 +88,8 @@ def consurf_upload():
     if st.button('create consurf dataframe'):
         consurf_df = pd.read_csv(consurf_file)
         st.write(consurf_df)
+        consurf_df = consurf_df['SEQ','COLOR']
+        st.write(consurf_df)
 consurf_upload()
 print(consurf_df)
 st.write(consurf_df)
@@ -91,8 +98,8 @@ st.write(consurf_df)
 
 @st.fragment()
 def align_df():
-    consurf_df = consurf_df['SEQ','COLOR']
-    st.write(consurf_df)
+    #consurf_df = consurf_df['SEQ','COLOR']
+    #st.write(consurf_df)
     df_combined = pd.concat([df_exploded, consurf_df], axis=1)
     st.write(df_combined)
 
