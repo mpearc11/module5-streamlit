@@ -58,6 +58,7 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
 
+st.write(df_exploded) #is this variable readable outside if statement
 
 consurf_file = st.file_uploader('',type='csv')
 
