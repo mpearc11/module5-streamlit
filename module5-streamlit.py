@@ -37,8 +37,9 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-@st.fragment()
-def psa_upload(): 
+#@st.fragment()
+with st.form('my form'):
+#def psa_upload(): 
     if st.button('read in PSA alignment'):
         #alignment = AlignIO.read(temp, 'clustal')
         alignment = AlignIO.read(StringIO(temp), "clustal")
