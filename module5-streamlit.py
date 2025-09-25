@@ -103,7 +103,7 @@ if st.button('read in PSA alignment'):
                     if aa != '-':
                         break
                 st.write('out of loop')
-                #aa = aa + 1
+                aa = aa + 1
                 #i = i + 1
             #for i in consurf_df['COLOR']:
                 #st.write(i)
