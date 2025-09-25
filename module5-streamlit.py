@@ -37,9 +37,8 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-#@st.fragment()
-with st.form('my form'):
-#def psa_upload(): 
+@st.fragment()
+def psa_upload(): 
     if st.button('read in PSA alignment'):
         #alignment = AlignIO.read(temp, 'clustal')
         alignment = AlignIO.read(StringIO(temp), "clustal")
@@ -48,7 +47,7 @@ with st.form('my form'):
     print(alignment)
     st.write(alignment)
 #psa_upload()
-st.write(alignment)
+#st.write(alignment)
     
 #convert clustal alignment to individual sequence strings
 
@@ -57,6 +56,7 @@ seq2 = str(alignment[1].seq)
 
 st.write(seq1)
 st.write(seq2)
+psa_upload()
 
 #convert strings to pandas dataframe
 
