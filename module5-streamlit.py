@@ -44,10 +44,10 @@ def psa_upload():
         alignment = AlignIO.read(StringIO(temp), "clustal")
         #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
         st.write(alignment)
-    print(alignment)
-    st.write(alignment)
-#psa_upload()
-#st.write(alignment)
+    #print(alignment)
+    #st.write(alignment)
+psa_upload()
+st.write(alignment)
     
 #convert clustal alignment to individual sequence strings
 
@@ -56,7 +56,6 @@ seq2 = str(alignment[1].seq)
 
 st.write(seq1)
 st.write(seq2)
-psa_upload()
 
 #convert strings to pandas dataframe
 
