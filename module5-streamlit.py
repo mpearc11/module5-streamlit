@@ -51,8 +51,8 @@ if st.button('read in PSA alignment'):
                 'ps seq': [seq2]}
     df = pd.DataFrame(data)
     st.write(df)
-    df = df.explode('target seq')
-    df = df.explode('target seq').reset_index(drop=True)
+    df_exploded = df['target seq'].str.split('').explode().reset_index(drop=True)
+    df_exploded = df['ps seq'].str.split('').explode().reset_index(drop=True)
     st.write(df)
 
 
@@ -68,6 +68,7 @@ if st.button('create consurf dataframe'):
 
 #combine dataframes
 
+#df['Country'] = ['USA', 'UK', 'France']
 
 
 #@st.fragment()
