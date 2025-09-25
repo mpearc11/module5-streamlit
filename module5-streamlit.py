@@ -72,8 +72,8 @@ if st.button('create consurf dataframe'):
 
 #combine dataframes
 
-    #consurf_df = consurf_df['']
-    #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
+    consurf_df = consurf_df['SEQ','COLOR']
+    df_combined = pd.concat([df_exploded, consurf_df], axis=1)
 
 
 #@st.fragment()
