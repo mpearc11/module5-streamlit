@@ -26,9 +26,9 @@ if psa_file is not None:
 else:
     st.info("please upload your PSA file")
 
-#temp = psa_file.read()
-#temp = psa_file.getvalue().decode("utf-8")
-temp = psa_file.getvalue()
+#temp = psa_file.read() ##gives you too long file name
+temp = psa_file.getvalue().decode("utf-8") ##can read file name correctly but
+#temp = psa_file.getvalue() ##gives you too long file name
 st.write(temp)
 
 if st.button('read in PSA alignment'):
