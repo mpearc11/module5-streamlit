@@ -21,7 +21,6 @@ st.header('Submit Sequences for PSA')
 
 psa_file = st.file_uploader("",type='aln')
 
-   
 if psa_file is not None:
     st.success("PSA file uploaded")
 else:
@@ -47,7 +46,7 @@ def psa_upload():
         st.write(alignment)
     print(alignment)
     st.write(alignment)
-psa_upload()
+#psa_upload()
 st.write(alignment)
     
 #convert clustal alignment to individual sequence strings
