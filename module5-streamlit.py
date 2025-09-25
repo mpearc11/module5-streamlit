@@ -28,7 +28,7 @@ if st.button('create PSA alignment object'):
     st.write(psa_file)
     psa = psa_file.read()
     
-    alignment = Align.read(psa, "clustal") #open(psa)
+    alignment = AlignIO.read(psa, "clustal") #open(psa)
     st.write(alignment)
     st.write(type(alignment.sequences))
 
@@ -47,8 +47,8 @@ if st.button('create consurf dataframe'):
 
 
 
-@st.fragment()
-def PSA_download():
-    with open('clustalPSA.aln') as f:
-        st.download_button('download PSA', f)
-PSA_download()
+#@st.fragment()
+#def PSA_download():
+ #   with open('clustalPSA.aln') as f:
+  #      st.download_button('download PSA', f)
+#PSA_download()
