@@ -31,6 +31,7 @@ st.write(temp)
 if st.button('read in PSA alignment'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
+    st.write(alignment)
 
 
 #if st.button('create PSA alignment object'):
