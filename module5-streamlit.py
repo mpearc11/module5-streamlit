@@ -104,10 +104,12 @@ if st.button('read in PSA alignment'):
                 if aa == '-':
                     st.write(idx)
                     gap = idx + 1
+                    st.write(gap)
+                    st.write(gap - 0.5)
                     #consurf_df.loc[gap] = ''
                     line = DataFrame({"SEQ": '', "COLOR": ''}, index=[gap -0.5])
                     consurf_df = pd.concat([consurf_df, line])
-                    consurf_df = consurf_df.sort_index().reset_index(drop=True)
+                consurf_df = consurf_df.sort_index().reset_index(drop=True)
             st.write(consurf_df)
             
             '''
