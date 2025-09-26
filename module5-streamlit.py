@@ -25,14 +25,14 @@ psa_file = st.file_uploader("",type='aln')
 if psa_file is not None:
     st.success("PSA file uploaded")
 else:
-    st.info("please upload your PSA file")
+    st.info("please upload your clustal .aln file")
 
 
 consurf_file = st.file_uploader('',type='csv')
 if consurf_file is not None:
     st.success('consurf file uploaded')
 else:
-    st.info('please upload the consurf file')
+    st.info('please upload the consurf excel file')
 
 
 #temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
@@ -46,7 +46,7 @@ df1 = ''
 df2 = ''
 df_exploded = ''
 
-if st.button('read in PSA alignment'):
+if st.button('read in clustal alignment file'):
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
@@ -82,7 +82,7 @@ if st.button('read in PSA alignment'):
 
     @st.fragment()
     def frag():
-        if st.button('create consurf dataframe'):
+        if st.button('create consurf dataframe & align with clustal aln dataframe'):
             consurf_df = pd.read_csv(consurf_file)
             st.write(consurf_df)
             consurf_df = consurf_df[['SEQ','COLOR']]
