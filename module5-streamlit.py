@@ -109,24 +109,17 @@ if st.button('read in clustal alignment file'):
             st.write(consurf_df)
             df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             st.write(df_combined)
+
+            #create new column (evoscore) and fill cells
+            df_combined['evoscore'] = ''
+            for idx, i in enumerate(df_combined['color']):
+                if i < 4:
+                    df_combined['evoscore'] = 0
+                if i >= 4:
+                    df_combined['evoscore'] = i
+            st.write(df_combined)
+            evoscore = df_combined['evoscore'].sum()
             
-            '''
-            idx = 0
-            for i in consurf_df['COLOR']:
-                st.write(i)
-                st.write(idx)
-                for idx, aa in enumerate(df_exploded['ps seq']):
-                    st.write(idx)
-                    st.write(aa)
-                    #df_exploded['color'] = np.where(df_exploded.loc[aa,'ps seq'] != '-', i, 'no match')
-                    df_exploded['color'] = np.where(aa != '-', 'found', 'no match')
-                    #df_exploded['color'] = np.where(df_exploded['ps seq'] != '-', i, 'no match')
-                    if aa != '-':
-                        idx = idx + 1
-                        break
-                st.write('out of loop')
-            st.write(df_exploded)
-            '''
     frag()
 
 
