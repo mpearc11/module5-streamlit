@@ -119,10 +119,9 @@ if st.button('read in clustal alignment file'):
                     df_combined.iloc[idx,4] = 0
                 if i >= 4:
                     df_combined.iloc[idx,4] = i
-                    st.write(df_combined)
-                    break
             st.write(df_combined)
             evoscore = df_combined['evoscore'].sum()
+            st.write(evoscore)
             
     frag()
 
