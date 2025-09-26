@@ -120,10 +120,10 @@ if st.button('read in clustal alignment file'):
             #df_combined['COLOR'] = df_combined['COLOR'].astype(int)
             for idx, i in enumerate(df_combined['COLOR']):
                 st.write(i)
-                if i >= 4:
+                if i >= 4.0:
                     df_combined['evoscore'] = i
                     st.write('included')
-                if i < 4:
+                if i < 4.0:
                     df_combined['evoscore'] = 0
                     st.write('excluded')
             st.write(df_combined)
