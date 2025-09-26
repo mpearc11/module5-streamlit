@@ -103,7 +103,7 @@ if st.button('read in clustal alignment file'):
                     st.write(gap)
                     st.write(gap - 0.5)
                     #consurf_df.loc[gap] = ''
-                    line = DataFrame({"SEQ": '', "COLOR": int(0)}, index=[gap -0.5])
+                    line = DataFrame({"SEQ": '', "COLOR": 0}, index=[gap -0.5])
                     consurf_df = pd.concat([consurf_df, line])
                     consurf_df = consurf_df.sort_index().reset_index(drop=True)
             st.write(consurf_df)
@@ -112,7 +112,7 @@ if st.button('read in clustal alignment file'):
 
             #create new column (evoscore) and fill cells
             df_combined['evoscore'] = ''
-            df_combined['COLOR'] = df_combined['COLOR'].astype(int)
+            #df_combined['COLOR'] = df_combined['COLOR'].astype(int)
             for idx, i in enumerate(df_combined['COLOR']):
                 if i == '':
                     df_combined['evoscore'] = 0
