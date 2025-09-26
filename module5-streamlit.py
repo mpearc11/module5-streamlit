@@ -119,7 +119,10 @@ if st.button('read in clustal alignment file'):
                     df_combined['evoscore'] = 0
                 if i >= 4:
                     new = i*0.5
+                    st.write(new)
                     df_combined['evoscore'] = new
+                    st.write(df_combined)
+                    break
             st.write(df_combined)
             evoscore = df_combined['evoscore'].sum()
             
