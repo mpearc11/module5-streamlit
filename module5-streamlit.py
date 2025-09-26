@@ -93,11 +93,17 @@ if st.button('read in PSA alignment'):
             #df_combined = pd.concat([df_exploded, consurf_df], axis=1)
             #st.write(df_combined)
                         
-            consurf_df = consurf_df.rename(columns = {'SEQ':'ps seq'})
-            st.write(consurf_df)
-            df_merged = pd.merge(df_exploded, consurf_df, on='ps seq')
-            st.write(df_merged)
+            #consurf_df = consurf_df.rename(columns = {'SEQ':'ps seq'})
+            #st.write(consurf_df)
+            #df_merged = pd.merge(df_exploded, consurf_df, on='ps seq')
+            #st.write(df_merged)
 
+            for aa in df_exploded['ps seq']:
+                if aa == '-':
+                    gap = aa.index
+                    consurf_df.loc[gap] = ''
+            st.write(consurf_df)
+            
             '''
             idx = 0
             for i in consurf_df['COLOR']:
