@@ -116,7 +116,7 @@ if st.button('read in clustal alignment file'):
             st.write(df_combined.dtypes)
             for idx,i in enumerate(df_combined['COLOR']):
                 if i < 4:
-                    df_combined.iloc[idx,4] = 0
+                    df_combined.iloc[idx,4] = 0.0
                 if i >= 4:
                     df_combined.iloc[idx,4] = i
             st.write(df_combined)
