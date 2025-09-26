@@ -73,7 +73,7 @@ if st.button('read in PSA alignment'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
     #df_exploded['color'] = 0
-    df_exploded = df_exploded.iloc[1:]
+    #df_exploded = df_exploded.iloc[1:] #drop the top row later
     st.write(df_exploded)
        
     #declaring more variables outside button if statement
@@ -86,7 +86,7 @@ if st.button('read in PSA alignment'):
             consurf_df = pd.read_csv(consurf_file)
             st.write(consurf_df)
             consurf_df = consurf_df[['SEQ','COLOR']]
-            consurf_df = consurf_df.iloc[1:]
+            #consurf_df = consurf_df.iloc[1:] #drop the top row later
             st.write(consurf_df)
             
             #combine dataframes; can concat OR just create the new COLOR one based on presence/absence of letter in each row
@@ -109,7 +109,7 @@ if st.button('read in PSA alignment'):
                     #consurf_df.loc[gap] = ''
                     line = DataFrame({"SEQ": '', "COLOR": ''}, index=[gap -0.5])
                     consurf_df = pd.concat([consurf_df, line])
-                    consurf_df = consurf_df.sort_index() #.reset_index(drop=True)
+                    consurf_df = consurf_df.sort_index().reset_index(drop=True)
             st.write(consurf_df)
             
             '''
