@@ -113,6 +113,8 @@ if st.button('read in clustal alignment file'):
             #create new column (evoscore) and fill cells
             df_combined['evoscore'] = ''
             for idx, i in enumerate(df_combined['COLOR']):
+                if i == '':
+                    df_combined['evoscore'] = 0
                 if int(i) < 4:
                     df_combined['evoscore'] = 0
                 if int(i) >= 4:
