@@ -98,11 +98,11 @@ if st.button('read in PSA alignment'):
             #df_merged = pd.merge(df_exploded, consurf_df, on='ps seq')
             #st.write(df_merged)
 
-            for aa in df_exploded['ps seq']:
+            for idx, aa in enumerate(df_exploded['ps seq']):
                 st.write(aa)
                 if aa == '-':
-                    st.write(aa.index)
-                    gap = aa.index
+                    st.write(idx)
+                    gap = idx
                     consurf_df.loc[gap] = ''
             st.write(consurf_df)
             
