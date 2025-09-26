@@ -19,7 +19,35 @@ st.header('Submit Sequences for PSA')
 
 #can insert code here later that will allow file upload & do the alignment internally
 
-#below is code to upload clustal psa (and hopefully the following steps)
+target_file = st.file_uploader("",type='fasta')
+
+if target_file is not None:
+    st.success("target FASTA file uploaded")
+else:
+    st.info("please upload your target FASTA file")
+
+ps_file = st.file_uploader("",type='fasta',key=2)
+
+if ps_file is not None:
+    st.success("project standard FASTA file uploaded")
+else:
+    st.info('please upload the project standard FASTA file')
+
+if st.button('create PSA'):
+    target_sio=StringIO(target_file.getvalue().decode('utf-8'))
+    target_record=SeqIO.read(target_sio,'fasta')
+    target=str(target_record.seq)
+    query_sio=StringIO(ps_file.getvalue().decode('utf-8'))
+    query_record=SeqIO.read(query_sio,'fasta')
+    query=str(query_record.seq)
+
+    aligner = Align.PairwiseAligner()
+    
+    alignment = aligner.align(target,query)
+    best_alignment = alignment[0]
+    st.write(best_alignment)
+    
+##below is core of code for clustal and consurf uploads & alignment in df
 
 psa_file = st.file_uploader("",type='aln')
 if psa_file is not None:
