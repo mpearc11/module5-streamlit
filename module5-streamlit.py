@@ -120,6 +120,7 @@ if st.button('read in clustal alignment file'):
                 if i >= 4:
                     df_combined.iloc[idx,4] = i
             st.write(df_combined)
+            st.write(df_combined.dtypes)
             evoscore = df_combined['evoscore'].sum()
             st.write(evoscore)
             
