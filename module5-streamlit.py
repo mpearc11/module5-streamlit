@@ -125,7 +125,7 @@ if st.button('read in clustal alignment file'):
             df_combined['evoscore'] = df_combined['evoscore'].astype(float)
             st.write(df_combined.dtypes)
             evoscore = df_combined['evoscore'].sum()
-            st.write('evoscore = ' + evoscore)
+            st.write('evoscore = ' + str(evoscore))
             
     frag()
 
