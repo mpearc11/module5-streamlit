@@ -11,6 +11,7 @@ import pandas as pd
 import tempfile
 import os
 import numpy as np
+from pandas import DataFrame
 
 st.title('EvoScore Calculation')
 
