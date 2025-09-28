@@ -36,7 +36,9 @@ else:
 
 
 temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
+st.write(temp)
 temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
+st.write(temp)
 temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
 st.write(temp)
 
