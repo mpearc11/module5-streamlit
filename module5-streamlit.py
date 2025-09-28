@@ -142,7 +142,7 @@ if st.button('read in clustal alignment file'):
                     df_combined.iloc[idx,5] = i
             #st.write(df_combined)
             #st.write(df_combined.dtypes)
-            df_combined['evoscore'] = df_combined['EvoScore'].astype(float)
+            df_combined['EvoScore'] = df_combined['EvoScore'].astype(float)
             #st.write(df_combined.dtypes)
             evoscore = df_combined['EvoScore'].sum()
             st.write('EvoScore = ' + str(evoscore))
