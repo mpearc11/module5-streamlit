@@ -89,7 +89,7 @@ if st.button('read in clustal alignment file'):
             # The line contains symbols, but not sequence data
             if line.startswith(" "):
                 # Extract only the symbols, stripping whitespace
-                symbols = line[26:] #.strip() #not using .strip() bc i need spaces; dropping the first 26 bc that seems to be the number of excess at the front in the file (should be consistent btwn alignments)
+                symbols = line[27:] #.strip() #not using .strip() bc i need spaces; dropping the first 26 bc that seems to be the number of excess at the front in the file (should be consistent btwn alignments)
                 conservation_line += symbols
     st.write(conservation_line)
     co_data = {'conservation': [conservation_line]}
