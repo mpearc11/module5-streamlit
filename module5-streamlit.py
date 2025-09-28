@@ -87,6 +87,7 @@ if st.button('read in clustal alignment file'):
         if any(char in "*:." for char in line):
             # The line contains symbols, but not sequence data
             if line.startswith(" "):
+                st.write(line)
                 # Extract only the symbols, stripping whitespace
                 symbols = line #.strip()
                 conservation_line += symbols
