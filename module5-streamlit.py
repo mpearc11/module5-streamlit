@@ -160,7 +160,7 @@ if st.button('read in clustal alignment file'):
                         df_combined.iloc[idx,6] = i*0.75
                     if df_combined.iloc[idx,2] == ' ':
                         df_combined.iloc[idx,6] = i
-            st.write(df_combined.iloc[[0,1,5,6]])
+            st.write(df_combined[['Target Seq', 'Project Standard Seq', 'EvoScore', 'Weighted EvoScore']])
             weighted_evoscore = df_combined['Weighted EvoScore'].sum()
             st.write('Weighted EvoScore = ' + str(weighted_evoscore))
 
