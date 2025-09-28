@@ -21,7 +21,7 @@ st.header('Submit Sequences for PSA')
     
 ##below is core of code for clustal and consurf uploads & alignment in df
 
-psa_file = st.file_uploader("",type='aln')
+psa_file = st.file_uploader("",type='clustal')
 if psa_file is not None:
     st.success("PSA file uploaded")
 else:
