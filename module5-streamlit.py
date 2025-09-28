@@ -94,13 +94,10 @@ if st.button('read in clustal alignment file'):
     st.write(conservation_line)
     co_data = {'convservation': [conservation_line]}
     df_symbols = pd.DataFrame(co_data)
-    #df_symbols['conservation'] = ''
-    #df_symbols.iloc[0,2] = conservation_line
     st.write(df_symbols)
-    #df_exploded['conservation'] = ''
-    #df_symbols = df_symbols['conservation'].str.split('').explode().reset_index(drop=True)
-    #df_exploded = pd.concat([df_exploded, df_symbols], axis=1)
-    #st.write(df_exploded)
+    df_symbols = df_symbols['conservation'].str.split('').explode().reset_index(drop=True)
+    df_exploded = pd.concat([df_exploded, df_symbols], axis=1)
+    st.write(df_exploded)
     
 
     @st.fragment()
