@@ -35,12 +35,11 @@ else:
     st.info('please upload the consurf excel file')
 
 
-temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
-st.write(temp)
+#temp = psa_file.read() ##adds 'b in front of file & other character issues (adds /n etc)
 temp = psa_file.getvalue().decode("utf-8") ##decodes characters correctly but still has too long file name issue
 st.write(temp)
-temp = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
-st.write(temp)
+bytes = psa_file.getvalue() ##adds 'b in front of file & other character issues (adds /n etc)
+st.write(bytes)
 
 #declaring variables outside of button if statement so i can access them after the button step
 df = ''
@@ -83,7 +82,7 @@ if st.button('read in clustal alignment file'):
 
     conservation_line = ""
     # Process the captured Clustal output text line by line
-    clustal_output_text = temp #temp is my decoded uploaded file
+    clustal_output_text = bytes #temp is my decoded uploaded file; bytes is bytes
     for line in clustal_output_text.splitlines():
         st.write(line)
         # The conservation line is identifiable by its spacing
