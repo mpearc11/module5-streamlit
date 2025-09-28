@@ -74,7 +74,7 @@ if st.button('read in clustal alignment file'):
     df_exploded = pd.concat([df1, df2], axis=1)
     st.write(df_exploded)
     #df_exploded['color'] = 0
-    df_exploded = df_exploded.iloc[1:].reset_index(drop=True)
+    #df_exploded = df_exploded.iloc[1:].reset_index(drop=True) #moving this to after the conservation symbols are added
     st.write(df_exploded)
        
     #declaring more variables outside button if statement
@@ -96,6 +96,7 @@ if st.button('read in clustal alignment file'):
     df_symbols = pd.DataFrame(co_data)
     df_symbols = df_symbols['conservation'].str.split('').explode().reset_index(drop=True)
     df_exploded = pd.concat([df_exploded, df_symbols], axis=1)
+    df_exploded = df_exploded.iloc[1:].reset_index(drop=True)
     st.write(df_exploded)
     
 
