@@ -136,9 +136,9 @@ if st.button('read in clustal alignment file'):
             st.write(df_combined.dtypes)
             for idx,i in enumerate(df_combined['COLOR']):
                 if i < 4:
-                    df_combined.iloc[idx,4] = 0
+                    df_combined.iloc[idx,5] = 0
                 if i >= 4:
-                    df_combined.iloc[idx,4] = i
+                    df_combined.iloc[idx,5] = i
             st.write(df_combined)
             st.write(df_combined.dtypes)
             df_combined['evoscore'] = df_combined['evoscore'].astype(float)
