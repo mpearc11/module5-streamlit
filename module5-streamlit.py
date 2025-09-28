@@ -146,12 +146,25 @@ if st.button('read in clustal alignment file'):
             st.write(df_combined.dtypes)
             evoscore = df_combined['evoscore'].sum()
             st.write('unweighted evoscore = ' + str(evoscore))
-            '''
+            
             df_combined['weighted evoscore'] = ''
             for idx, i in enumerate(df_combined['COLOR']):
+                if i < 4:
+                    df_combined.iloc[idx,6] = 0
                 if i >= 4:
-                    if df_combined.iloc[idx,
-            '''    
+                    if df_combined.iloc[idx,2] = '*':
+                        df_combined.iloc[idx,6] = 0
+                    if df_combined.iloc[idx,2] = ':':
+                        df_combined.iloc[idx,6] = i*0.5
+                    if df_combined.iloc[idx,2] = '.':
+                        df_combined.iloc[idx,6] = i*0.75
+                    if df_combined.iloc[idx,2] = '':
+                        df_combined.iloc[idx,6] = i
+            st.write(df_combined)
+            weighted_evoscore = df_combined['weighted evoscore'].sum()
+            st.write('weighted evoscore = ' + str(weighted_evoscore))
+
+                
             
     frag()
 
