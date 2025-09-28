@@ -25,7 +25,9 @@ psa_file = st.file_uploader("",type='clustal')
 if psa_file is not None:
     st.success("PSA file uploaded")
 else:
-    st.info("please upload your clustal .aln file")
+    st.info("please upload your clustal .clustal file")
+
+st.write(psa_file)
 
 
 consurf_file = st.file_uploader('',type='csv')
