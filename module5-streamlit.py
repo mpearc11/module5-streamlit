@@ -63,8 +63,8 @@ if st.button('read in clustal alignment file'):
     
     #convert strings to pandas dataframe
     
-    data = {'target seq': [seq1],
-                'ps seq': [seq2]}
+    data = {'Target Seq': [seq1],
+                'Project Standard Seq': [seq2]}
     df = pd.DataFrame(data)
     #st.write(df)
     df1 = df['target seq'].str.split('').explode().reset_index(drop=True)
@@ -102,7 +102,7 @@ if st.button('read in clustal alignment file'):
 
     @st.fragment()
     def frag():
-        if st.button('create consurf dataframe & align with clustal aln dataframe'):
+        if st.button('create consurf dataframe & align with clustal dataframe'):
             consurf_df = pd.read_csv(consurf_file)
             #st.write(consurf_df)
             consurf_df = consurf_df[['SEQ','COLOR']]
@@ -132,7 +132,7 @@ if st.button('read in clustal alignment file'):
             #st.write(df_combined)
 
             #create new column (evoscore) and fill cells
-            df_combined['evoscore'] = ''
+            df_combined['EvoScore'] = ''
             #st.write(df_combined)
             #st.write(df_combined.dtypes)
             for idx,i in enumerate(df_combined['COLOR']):
@@ -142,12 +142,12 @@ if st.button('read in clustal alignment file'):
                     df_combined.iloc[idx,5] = i
             #st.write(df_combined)
             #st.write(df_combined.dtypes)
-            df_combined['evoscore'] = df_combined['evoscore'].astype(float)
+            df_combined['evoscore'] = df_combined['EvoScore'].astype(float)
             #st.write(df_combined.dtypes)
-            evoscore = df_combined['evoscore'].sum()
-            st.write('unweighted evoscore = ' + str(evoscore))
+            evoscore = df_combined['EvoScore'].sum()
+            st.write('EvoScore = ' + str(evoscore))
             
-            df_combined['weighted evoscore'] = ''
+            df_combined['Weighted EvoScore'] = ''
             for idx, i in enumerate(df_combined['COLOR']):
                 if i < 4:
                     df_combined.iloc[idx,6] = 0
@@ -160,9 +160,9 @@ if st.button('read in clustal alignment file'):
                         df_combined.iloc[idx,6] = i*0.75
                     if df_combined.iloc[idx,2] == ' ':
                         df_combined.iloc[idx,6] = i
-            st.write(df_combined)
-            weighted_evoscore = df_combined['weighted evoscore'].sum()
-            st.write('weighted evoscore = ' + str(weighted_evoscore))
+            st.write(df_combined.iloc[[0,1,5,6]])
+            weighted_evoscore = df_combined['Weighted EvoScore'].sum()
+            st.write('Weighted EvoScore = ' + str(weighted_evoscore))
 
                 
             
