@@ -27,8 +27,6 @@ if psa_file is not None:
 else:
     st.info("please upload your clustal .clustal file")
 
-st.write(psa_file)
-
 
 consurf_file = st.file_uploader('',type='csv')
 if consurf_file is not None:
