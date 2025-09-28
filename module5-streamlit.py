@@ -78,7 +78,19 @@ if st.button('read in clustal alignment file'):
        
     #declaring more variables outside button if statement
     consurf_df = ''
-    #df_combined = ''
+
+    conservation_line = ""
+    # Process the captured Clustal output text line by line
+    clustal_output_text = temp #temp is my decoded uploaded file
+    for line in clustal_output_text.splitlines():
+        # The conservation line is identifiable by its spacing
+        if any(char in "*:." for char in line):
+            # The line contains symbols, but not sequence data
+            if line.startswith(" "):
+                # Extract only the symbols, stripping whitespace
+                symbols = line.strip()
+                conservation_line += symbols
+    st.write(conservation_line)
 
     @st.fragment()
     def frag():
