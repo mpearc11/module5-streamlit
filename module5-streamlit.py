@@ -115,7 +115,7 @@ if st.button('read in clustal alignment file'):
             #st.write(df_combined)
                         
 
-            for idx, aa in enumerate(df_exploded['ps seq']):
+            for idx, aa in enumerate(df_exploded['Project Standard Seq']):
                 #st.write(aa)
                 if aa == '-':
                     #st.write(idx)
