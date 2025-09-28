@@ -158,7 +158,7 @@ if st.button('read in clustal alignment file'):
                         df_combined.iloc[idx,6] = i*0.5
                     if df_combined.iloc[idx,2] == '.':
                         df_combined.iloc[idx,6] = i*0.75
-                    if df_combined.iloc[idx,2] == '':
+                    if df_combined.iloc[idx,2] == ' ':
                         df_combined.iloc[idx,6] = i
             st.write(df_combined)
             weighted_evoscore = df_combined['weighted evoscore'].sum()
