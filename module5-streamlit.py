@@ -91,9 +91,12 @@ if st.button('read in clustal alignment file'):
                 # Extract only the symbols, stripping whitespace
                 symbols = line #.strip()
                 conservation_line += symbols
-    for char in conservation_line:
-        st.write('new:' + str(char) + '\n')
     st.write(conservation_line)
+    df_exploded['conservation'] = conservation_line
+    st.write(df_exploded)
+    df_exploded = df_exploded['conservation'].str.split('').explode().reset_index(drop=True)
+    st.write(df_exploded)
+    
 
     @st.fragment()
     def frag():
