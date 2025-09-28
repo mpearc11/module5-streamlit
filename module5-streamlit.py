@@ -92,6 +92,7 @@ if st.button('read in clustal alignment file'):
                 symbols = line #.strip()
                 conservation_line += symbols
     st.write(conservation_line)
+    st.write(conservation_line.dtype)
     co_data = {'conservation': [conservation_line]}
     df_symbols = pd.DataFrame(co_data)
     st.write(df_symbols)
