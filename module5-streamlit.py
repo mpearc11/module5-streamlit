@@ -94,11 +94,7 @@ if st.button('read in clustal alignment file'):
     st.write(conservation_line)
     co_data = {'conservation': [conservation_line]}
     df_symbols = pd.DataFrame(co_data)
-    st.write(df_symbols)
-    test = df_symbols['conservation'].str.split('')
-    st.write(test)
     df_symbols = df_symbols['conservation'].str.split('').explode().reset_index(drop=True)
-    st.write(df_symbols)
     df_exploded = pd.concat([df_exploded, df_symbols], axis=1)
     st.write(df_exploded)
     
@@ -148,7 +144,13 @@ if st.button('read in clustal alignment file'):
             df_combined['evoscore'] = df_combined['evoscore'].astype(float)
             st.write(df_combined.dtypes)
             evoscore = df_combined['evoscore'].sum()
-            st.write('evoscore = ' + str(evoscore))
+            st.write('unweighted evoscore = ' + str(evoscore))
+            '''
+            df_combined['weighted evoscore'] = ''
+            for idx, i in enumerate(df_combined['COLOR']):
+                if i >= 4:
+                    if df_combined.iloc[idx,
+            '''    
             
     frag()
 
