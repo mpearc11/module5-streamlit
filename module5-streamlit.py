@@ -165,7 +165,7 @@ if st.button('read in clustal alignment file'):
             st.write(df_combined)
             new_column_order = ['Project Standard Seq', 'Target Seq', 'conservation', 'SEQ', 'COLOR', 'EvoScore', 'Weighted EvoScore']
             df_combined = df_combined.reindex(columns=new_column_order)
-            st.write(df_combined[['Target Seq', 'Project Standard Seq', 'EvoScore', 'Weighted EvoScore']])
+            st.write(df_combined[['Project Standard Seq', 'Target Seq', 'EvoScore', 'Weighted EvoScore']])
             weighted_evoscore = df_combined['Weighted EvoScore'].sum()
             st.write('Weighted EvoScore = ' + str(weighted_evoscore))
 
