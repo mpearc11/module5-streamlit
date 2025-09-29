@@ -48,23 +48,39 @@ df2 = ''
 df_exploded = ''
 
 if st.button('read in clustal alignment file'):
+    ps_line = ""
+    target_line = ""
+    # Process the captured Clustal output text line by line
+    for line in temp.splitlines():
+        # The conservation line is identifiable by its spacing
+        if 'P22259' in line:
+            seq = line[26:]
+            ps_line += seq
+        if line.startswith(" "):
+            symbols = line[26:]
+        else:
+            seq = line[26:]
+            target_line += seq
+    st.write(ps_line)
+    st.write(target_line)
+            
     #alignment = AlignIO.read(temp, 'clustal')
-    alignment = AlignIO.read(StringIO(temp), "clustal")
+    #alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     #st.write(alignment)
     
     #convert clustal alignment to individual sequence strings
     
-    seq1 = str(alignment[0].seq)
-    seq2 = str(alignment[1].seq)
+    #seq1 = str(alignment[0].seq)
+    #seq2 = str(alignment[1].seq)
     
     #st.write(seq1)
     #st.write(seq2)
     
     #convert strings to pandas dataframe
     
-    data = {'Target Seq': [seq1],
-                'Project Standard Seq': [seq2]}
+    data = {'Target Seq': [target_line],
+                'Project Standard Seq': [ps_line]}
     df = pd.DataFrame(data)
     #st.write(df)
     df1 = df['Target Seq'].str.split('').explode().reset_index(drop=True)
