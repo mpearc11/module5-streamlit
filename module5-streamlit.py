@@ -76,8 +76,8 @@ if st.button('read in clustal alignment file'):
     seq1 = str(alignment[0].seq)
     seq2 = str(alignment[1].seq)
     
-    #st.write(seq1)
-    #st.write(seq2)
+    st.write(seq1)
+    st.write(seq2)
     
     #convert strings to pandas dataframe
     
