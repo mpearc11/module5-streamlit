@@ -55,14 +55,16 @@ if st.button('read in clustal alignment file'):
     for line in temp_split[1:]:
         # The conservation line is identifiable by its spacing
         if 'P22259' in line:
-            seq = line[26:].strip()
+            seq = line[26:]
             ps_line += seq
         if line.startswith("sp"):
             if 'P22259' not in line:
-                seq = line[26:].strip()
+                seq = line[26:]
                 target_line += seq
     ps_line = "".join(char for char in ps_line if not char.isdigit())
     target_line = "".join(char for char in target_line if not char.isdigit())
+    ps_line = ps_line.strip()
+    target_line = target_line.strip()
     st.write(ps_line)
     st.write(target_line)
             
