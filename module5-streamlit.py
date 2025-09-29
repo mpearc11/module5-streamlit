@@ -67,14 +67,14 @@ if st.button('read in clustal alignment file'):
     st.write(target_line)
             
     #alignment = AlignIO.read(temp, 'clustal')
-    #alignment = AlignIO.read(StringIO(temp), "clustal")
+    alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
     #st.write(alignment)
     
     #convert clustal alignment to individual sequence strings
     
-    #seq1 = str(alignment[0].seq)
-    #seq2 = str(alignment[1].seq)
+    seq1 = str(alignment[0].seq)
+    seq2 = str(alignment[1].seq)
     
     #st.write(seq1)
     #st.write(seq2)
