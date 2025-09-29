@@ -57,7 +57,7 @@ if st.button('read in clustal alignment file'):
         if 'P22259' in line:
             seq = line[26:86]
             ps_line += seq
-        if line.startswith("sp"):
+        if line[:1].isalpha():
             if 'P22259' not in line:
                 seq = line[26:86]
                 target_line += seq
