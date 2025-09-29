@@ -61,6 +61,8 @@ if st.button('read in clustal alignment file'):
         else:
             seq = line[26:]
             target_line += seq
+    ps_line = re.sub(r'\d+', '', ps_line)
+    target_line = re.sub(r'\d+', '', target_line)
     st.write(ps_line)
     st.write(target_line)
             
