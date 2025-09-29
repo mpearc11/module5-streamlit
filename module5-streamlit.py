@@ -101,8 +101,7 @@ if st.button('read in clustal alignment file'):
 
     conservation_line = ""
     # Process the captured Clustal output text line by line
-    clustal_output_text = temp #temp is my decoded uploaded file; bytes is bytes
-    for line in clustal_output_text.splitlines():
+    for line in temp.splitlines():
         # The conservation line is identifiable by its spacing
         if any(char in "*:. " for char in line):
             # The line contains symbols, but not sequence data
