@@ -55,31 +55,31 @@ if st.button('read in clustal alignment file'):
     for line in temp_split[1:]:
         # The conservation line is identifiable by its spacing
         if 'P22259' in line:
-            seq = line[26:]
+            seq = line[26:86]
             ps_line += seq
         if line.startswith("sp"):
             if 'P22259' not in line:
-                seq = line[26:]
+                seq = line[26:86]
                 target_line += seq
-    ps_line = "".join(char for char in ps_line if not char.isdigit())
-    target_line = "".join(char for char in target_line if not char.isdigit())
-    ps_line = ps_line.strip()
-    target_line = target_line.strip()
+    #ps_line = "".join(char for char in ps_line if not char.isdigit())
+    #target_line = "".join(char for char in target_line if not char.isdigit())
+    #ps_line = ps_line.strip()
+    #target_line = target_line.strip()
     st.text(ps_line)
     st.text(target_line)
             
     #alignment = AlignIO.read(temp, 'clustal')
-    alignment = AlignIO.read(StringIO(temp), "clustal")
+    #alignment = AlignIO.read(StringIO(temp), "clustal")
     #alignment = AlignIO.read('ctei_clustal.aln', 'clustal')
-    st.write(alignment)
+    #st.write(alignment)
     
     #convert clustal alignment to individual sequence strings
     
-    seq1 = str(alignment[0].seq)
-    seq2 = str(alignment[1].seq)
+    #seq1 = str(alignment[0].seq)
+    #seq2 = str(alignment[1].seq)
     
-    st.write(seq1)
-    st.write(seq2)
+    #st.write(seq1)
+    #st.write(seq2)
     
     #convert strings to pandas dataframe
     
