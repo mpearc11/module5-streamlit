@@ -59,7 +59,7 @@ if st.button('read in clustal alignment file'):
             st.write(seq)
             ps_line += seq
         if line.startswith("sp"):
-            if 'P22259' is not in line:
+            if 'P22259' not in line:
                 seq = line[26:]
                 st.write(seq)
                 target_line += seq
