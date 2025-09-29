@@ -50,9 +50,9 @@ df_exploded = ''
 if st.button('read in clustal alignment file'):
     ps_line = ""
     target_line = ""
-    temp = temp.splitlines()
+    temp_split = temp.splitlines()
     # Process the captured Clustal output text line by line
-    for line in temp[1:]:
+    for line in temp_split[1:]:
         # The conservation line is identifiable by its spacing
         if 'P22259' in line:
             seq = line[26:].strip()
@@ -100,7 +100,7 @@ if st.button('read in clustal alignment file'):
 
     conservation_line = ""
     # Process the captured Clustal output text line by line
-    for line in temp:
+    for line in temp_split:
         # The conservation line is identifiable by its spacing
         if any(char in "*:. " for char in line):
             # The line contains symbols, but not sequence data
