@@ -56,12 +56,16 @@ if st.button('read in clustal alignment file'):
         # The conservation line is identifiable by its spacing
         if 'P22259' in line:
             seq = line[26:]
+            st.write(seq)
             ps_line += seq
         if line.startswith(" "):
             symbols = line[26:]
         else:
             seq = line[26:]
+            st.write(seq)
             target_line += seq
+    st.write(ps_line)
+    st.write(target_line)
     ps_line = "".join(char for char in ps_line if not char.isdigit())
     target_line = "".join(char for char in target_line if not char.isdigit())
     st.write(ps_line)
