@@ -140,6 +140,8 @@ if st.button('read in clustal alignment file'):
                     df_combined.iloc[idx,5] = 0
                 if i >= 4:
                     df_combined.iloc[idx,5] = i
+                if df_combined.iloc[idx,0] == df_combined.iloc[idx,1]:
+                    df_combined.iloc[idx,5] = 0
             #st.write(df_combined)
             #st.write(df_combined.dtypes)
             df_combined['EvoScore'] = df_combined['EvoScore'].astype(float)
@@ -161,6 +163,8 @@ if st.button('read in clustal alignment file'):
                     if df_combined.iloc[idx,2] == ' ':
                         df_combined.iloc[idx,6] = i
             st.write(df_combined)
+            new_column_order = ['Project Standard Seq', 'Target Seq', 'conservation', 'SEQ', 'COLOR', 'EvoScore', 'Weighted EvoScore']
+            df_combined = df_combined.reindex(columns=new_column_order)
             st.write(df_combined[['Target Seq', 'Project Standard Seq', 'EvoScore', 'Weighted EvoScore']])
             weighted_evoscore = df_combined['Weighted EvoScore'].sum()
             st.write('Weighted EvoScore = ' + str(weighted_evoscore))
