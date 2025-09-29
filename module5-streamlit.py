@@ -58,12 +58,11 @@ if st.button('read in clustal alignment file'):
             seq = line[26:]
             st.write(seq)
             ps_line += seq
-        if line.startswith(" "):
-            symbols = line[26:]
-        else:
-            seq = line[26:]
-            st.write(seq)
-            target_line += seq
+        if line.startswith("sp"):
+            if 'P22259' is not in line:
+                seq = line[26:]
+                st.write(seq)
+                target_line += seq
     st.write(ps_line)
     st.write(target_line)
     ps_line = "".join(char for char in ps_line if not char.isdigit())
