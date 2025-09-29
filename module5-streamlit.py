@@ -65,8 +65,8 @@ if st.button('read in clustal alignment file'):
     target_line = "".join(char for char in target_line if not char.isdigit())
     ps_line = ps_line.strip()
     target_line = target_line.strip()
-    st.write(ps_line)
-    st.write(target_line)
+    st.text(ps_line)
+    st.text(target_line)
             
     #alignment = AlignIO.read(temp, 'clustal')
     alignment = AlignIO.read(StringIO(temp), "clustal")
