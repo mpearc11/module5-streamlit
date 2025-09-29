@@ -61,8 +61,8 @@ if st.button('read in clustal alignment file'):
             if 'P22259' not in line:
                 seq = line[26:86]
                 target_line += seq
-    #ps_line = "".join(char for char in ps_line if not char.isdigit())
-    #target_line = "".join(char for char in target_line if not char.isdigit())
+    ps_line = "".join(char for char in ps_line if not char.isdigit())
+    target_line = "".join(char for char in target_line if not char.isdigit())
     #ps_line = ps_line.strip()
     #target_line = target_line.strip()
     st.text(ps_line)
